@@ -12,20 +12,21 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:       #0a1628;
-      --navy-mid:   #0f2040;
-      --navy-light: #1a3560;
-      --gold:       #f59e0b;
-      --gold-light: #fbbf24;
-      --white:      #ffffff;
-      --gray-50:    #f9fafb;
-      --gray-100:   #f3f4f6;
-      --gray-200:   #e5e7eb;
-      --gray-300:   #d1d5db;
-      --gray-400:   #9ca3af;
-      --gray-500:   #6b7280;
-      --gray-600:   #4b5563;
-      --text:       #1f2937;
+      --navy:       #593E2E;
+      --navy-mid:   #6e4a35;
+      --navy-light: #8C5B3E;
+      --gold:       #BF9B7A;
+      --gold-light: #d4b696;
+      --olive:      #555934;
+      --white:      #FAF3EC;
+      --gray-50:    #F2E6D8;
+      --gray-100:   #EDE0D0;
+      --gray-200:   #DCC9B0;
+      --gray-300:   #C9AF8E;
+      --gray-400:   #A98F72;
+      --gray-500:   #8C7259;
+      --gray-600:   #6B5744;
+      --text:       #3D2A1F;
       --radius:     12px;
     }
 
@@ -37,7 +38,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(10, 22, 40, 0.96);
+      background: rgba(89, 62, 46, 0.96);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       height: 64px;
@@ -113,7 +114,7 @@
       right: -10%;
       width: 55vw;
       height: 55vw;
-      background: radial-gradient(circle, rgba(245,158,11,0.06) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(191,155,122,0.06) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -123,7 +124,7 @@
       left: -10%;
       width: 40vw;
       height: 40vw;
-      background: radial-gradient(circle, rgba(245,158,11,0.04) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(191,155,122,0.04) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -192,8 +193,8 @@
       border-radius: 999px;
     }
     .hero-chip.highlight {
-      background: rgba(245,158,11,0.1);
-      border-color: rgba(245,158,11,0.25);
+      background: rgba(191,155,122,0.1);
+      border-color: rgba(191,155,122,0.25);
       color: var(--gold);
     }
 
@@ -213,7 +214,7 @@
       transition: all 0.2s;
       letter-spacing: 0.01em;
     }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,158,11,0.25); }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(191,155,122,0.25); }
 
     .btn-outline {
       display: inline-flex;
@@ -244,7 +245,7 @@
       position: absolute;
       inset: -2px;
       border-radius: 22px;
-      background: linear-gradient(135deg, rgba(245,158,11,0.4), transparent 60%);
+      background: linear-gradient(135deg, rgba(191,155,122,0.4), transparent 60%);
       z-index: -1;
     }
     .hero-photo-tag {
@@ -324,7 +325,7 @@
       text-align: center;
       transition: background 0.2s;
     }
-    .numero-card:hover { background: rgba(245,158,11,0.06); }
+    .numero-card:hover { background: rgba(191,155,122,0.06); }
 
     .numero-value {
       font-size: 2.25rem;
@@ -592,7 +593,7 @@
       position: absolute;
       left: 0; top: 8px; bottom: 0;
       width: 1px;
-      background: linear-gradient(to bottom, var(--gold), rgba(245,158,11,0.05));
+      background: linear-gradient(to bottom, var(--gold), rgba(191,155,122,0.05));
     }
 
     .timeline-item {
@@ -614,7 +615,7 @@
     }
     .timeline-dot.current {
       background: var(--gold);
-      box-shadow: 0 0 0 4px rgba(245,158,11,0.2);
+      box-shadow: 0 0 0 4px rgba(191,155,122,0.2);
     }
 
     .timeline-period {
@@ -629,8 +630,8 @@
       gap: 0.5rem;
     }
     .badge-current {
-      background: rgba(245,158,11,0.12);
-      border: 1px solid rgba(245,158,11,0.3);
+      background: rgba(191,155,122,0.12);
+      border: 1px solid rgba(191,155,122,0.3);
       color: var(--gold);
       font-size: 0.6rem;
       padding: 0.1rem 0.5rem;
@@ -794,7 +795,7 @@
 
     /* ── FOOTER ── */
     footer {
-      background: #060e1a;
+      background: #2e1f17;
       padding: 1.75rem 2rem;
       text-align: center;
       color: var(--gray-600);
@@ -1025,7 +1026,7 @@
 
         <!-- Arena Excel -->
         <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb" style="background:#0a1628;">
+          <div class="projeto-thumb" >
             <div class="slideshow" id="slide-arena">
               <img src="imagens/arena1.png" alt="Arena Excel" class="active" />
               <img src="imagens/arena2.png" alt="Arena Excel" />
@@ -1043,7 +1044,7 @@
             <div class="projeto-stack">
               <span>HTML / CSS</span><span>JavaScript</span><span>Gamificação</span>
             </div>
-            <a href="http://arenaexcel.excelcomjohni.com.br" target="_blank" rel="noopener" class="projeto-link">Acessar plataforma →</a>
+            <a href="https://johniGomes.github.io/arena-excel" target="_blank" rel="noopener" class="projeto-link">Acessar plataforma →</a>
           </div>
         </div>
 
@@ -1196,6 +1197,101 @@
             <p class="projeto-desc">Dashboards de performance em Power BI, Qlik Sense, Looker Studio e HTML para diretoria. KPIs de estoque, produtividade, SLA e indicadores operacionais.</p>
             <div class="projeto-resultado">Decisões em tempo real baseadas em dados para lideranças da Leroy Merlin e outros clientes.</div>
             <div class="projeto-stack"><span>Power BI</span><span>Qlik Sense</span><span>Looker Studio</span><span>HTML</span><span>SQL</span></div>
+          </div>
+        </div>
+
+        <!-- VDO Club -->
+        <div class="projeto-card fade-up" data-cat="sistema">
+          <div class="projeto-thumb">
+            <div class="thumb-placeholder">
+              <div class="thumb-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 7h18M3 7v12a1 1 0 001 1h16a1 1 0 001-1V7M3 7l2-4h14l2 4M9 11h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="thumb-placeholder-text">VDO Club</div>
+            </div>
+          </div>
+          <div class="projeto-body">
+            <div class="projeto-tipo">SaaS · Next.js · B2B</div>
+            <h3 class="projeto-nome">VDO Club</h3>
+            <p class="projeto-desc">Plataforma B2B que conecta arquitetos a fornecedores de material de construção. Diretório de fornecedores por categoria e avaliação, fluxo de orçamento com CRM simplificado (solicitação → resposta → fechamento) e painel admin para aprovações e links de indicação.</p>
+            <div class="projeto-resultado">Fluxo completo de conexão arquiteto–fornecedor, do cadastro ao fechamento do negócio.</div>
+            <div class="projeto-stack"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Tailwind CSS</span></div>
+          </div>
+        </div>
+
+        <!-- ERP Tamboleco -->
+        <div class="projeto-card fade-up" data-cat="sistema">
+          <div class="projeto-thumb">
+            <div class="thumb-placeholder">
+              <div class="thumb-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M3 17h1V8a1 1 0 011-1h8a1 1 0 011 1v9h1m-11 0h11m-11 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0m15 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0m4 0h2v-4l-2-3h-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="thumb-placeholder-text">ERP Tamboleco</div>
+            </div>
+          </div>
+          <div class="projeto-body">
+            <div class="projeto-tipo">ERP · Next.js · Gestão</div>
+            <h3 class="projeto-nome">ERP Tamboleco</h3>
+            <p class="projeto-desc">Sistema de gestão completo para empresa de locação de caçambas (Tamboleco Mini Entulho). Controle de clientes, locações com cálculo automático de valores, inventário de caçambas por status, contas a pagar/receber, emissão de recibos em PDF e dashboards de faturamento.</p>
+            <div class="projeto-resultado">Operação de locação e financeiro centralizados em um único sistema.</div>
+            <div class="projeto-stack"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Recharts</span></div>
+          </div>
+        </div>
+
+        <!-- Master Regularização -->
+        <div class="projeto-card fade-up" data-cat="sistema">
+          <div class="projeto-thumb">
+            <div class="thumb-placeholder">
+              <div class="thumb-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm5 0v16m5-16v16" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="thumb-placeholder-text">Master Regularização</div>
+            </div>
+          </div>
+          <div class="projeto-body">
+            <div class="projeto-tipo">Sistema Web · Kanban · Gestão</div>
+            <h3 class="projeto-nome">Sistema Master Regularização</h3>
+            <p class="projeto-desc">Ferramenta de gestão de clientes e processos em formato Kanban para empresa de regularização de imóveis. Organização por espaços de trabalho, etapas do processo com drag-and-drop, convite de equipe e controle de acesso.</p>
+            <div class="projeto-resultado">Rastreamento visual de cada processo de regularização, do início à conclusão.</div>
+            <div class="projeto-stack"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>dnd-kit</span></div>
+          </div>
+        </div>
+
+        <!-- Conecta Estudante -->
+        <div class="projeto-card fade-up" data-cat="sistema">
+          <div class="projeto-thumb">
+            <div class="thumb-placeholder">
+              <div class="thumb-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5zm5 3v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="thumb-placeholder-text">Conecta Estudante</div>
+            </div>
+          </div>
+          <div class="projeto-body">
+            <div class="projeto-tipo">Protótipo · Next.js · Educação</div>
+            <h3 class="projeto-nome">Conecta Estudante</h3>
+            <p class="projeto-desc">Protótipo funcional de sistema de presença escolar com detecção facial via câmera. Inclui app do aluno (notas, comunicados, histórico de presença), painel da secretaria (KPIs, lançamento de notas, acompanhamento de evasão) e app dos responsáveis com notificação em tempo real de check-in.</p>
+            <div class="projeto-resultado">Demonstração completa do fluxo aluno → secretaria → responsável em tempo real.</div>
+            <div class="projeto-stack"><span>Next.js</span><span>Supabase Realtime</span><span>face-api.js</span></div>
+          </div>
+        </div>
+
+        <!-- Manda Prints (E-commerce Filipe) -->
+        <div class="projeto-card fade-up" data-cat="sistema">
+          <div class="projeto-thumb">
+            <div class="thumb-placeholder">
+              <div class="thumb-placeholder-icon">
+                <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8zm3 0V6a3 3 0 016 0v2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div class="thumb-placeholder-text">Manda Prints</div>
+            </div>
+          </div>
+          <div class="projeto-body">
+            <div class="projeto-tipo">E-commerce · Next.js · Pagamentos</div>
+            <h3 class="projeto-nome">Manda Prints — E-commerce</h3>
+            <p class="projeto-desc">Loja virtual para venda de fotografias autorais impressas em tela canvas. Coleções de produtos, carrinho, checkout integrado ao Mercado Pago, cálculo de frete via Melhor Envio, rastreio de pedidos e painel admin para gestão de envios.</p>
+            <div class="projeto-resultado">Loja pronta para operar, do checkout ao rastreio do pedido.</div>
+            <div class="projeto-stack"><span>Next.js</span><span>Mercado Pago</span><span>Melhor Envio</span><span>Supabase</span></div>
           </div>
         </div>
 
@@ -1398,7 +1494,7 @@
   </section>
 
   <footer>
-    <p>© 2026 Johni Michael Gomes dos Santos · Goiânia/GO · contato@excelcomjohni.com.br</p>
+    <p>© 2026 Johni Michael Gomes dos Santos · Goiânia/GO · johnimg845@gmail.com</p>
   </footer>
 
   <script>
