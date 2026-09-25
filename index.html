@@ -76,7 +76,9 @@
       padding: 120px 1.5rem 6rem;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 
     .stage-panel {
@@ -110,7 +112,9 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 1.25rem;
-      margin-bottom: 1.75rem;
+      max-width: 980px;
+      width: 100%;
+      margin: 0 auto 1.5rem;
     }
 
     /* ── VIEW SWITCH ── */
@@ -306,23 +310,23 @@
 
   <!-- HERO / STAGE -->
   <section id="hero">
-    <div class="stage-panel fade-up" id="projetos">
-      <div class="stage-row">
-        <p class="stage-intro">Me chamo Johni, sou desenvolvedor web e mobile e estes foram alguns dos projetos que já realizei.</p>
+    <div class="stage-row fade-up">
+      <p class="stage-intro">Me chamo Johni, sou desenvolvedor web e mobile e estes foram alguns dos projetos que já realizei.</p>
 
-        <div class="view-switch" id="viewSwitch">
-          <button data-view="stack" class="active" aria-label="Visualização empilhada" title="Empilhado">
-            <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
-          </button>
-          <button data-view="grid" aria-label="Visualização em grade" title="Grade">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-          </button>
-          <button data-view="list" aria-label="Visualização em lista" title="Lista">
-            <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-          </button>
-        </div>
+      <div class="view-switch" id="viewSwitch">
+        <button data-view="stack" class="active" aria-label="Visualização empilhada" title="Empilhado">
+          <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+        </button>
+        <button data-view="grid" aria-label="Visualização em grade" title="Grade">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        </button>
+        <button data-view="list" aria-label="Visualização em lista" title="Lista">
+          <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+        </button>
       </div>
+    </div>
 
+    <div class="stage-panel fade-up" id="projetos">
       <!-- STACK VIEW -->
       <div class="view-panel active" id="viewStack">
         <div class="stack-viewport" id="stackViewport"></div>
@@ -362,7 +366,7 @@
   </div>
 
   <footer>
-    <p>© 2026 Johni Michael Gomes dos Santos · Goiânia/GO · johnimg845@gmail.com</p>
+    <p>© 2026 Johni Michael Gomes dos Santos</p>
   </footer>
 
   <script>
