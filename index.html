@@ -44,8 +44,14 @@
       padding: 0 2rem;
       justify-content: space-between;
     }
-    .nav-logo { font-weight: 800; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; text-decoration: none; }
-    .nav-logo span { color: var(--brown); }
+    .nav-logo {
+      display: flex; align-items: center;
+      background: var(--brown-dark);
+      border-radius: 10px;
+      padding: 0.4rem 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 22px; width: auto; display: block; }
     .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
     .nav-links a {
       color: var(--text-soft);
@@ -308,7 +314,7 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#hero" class="nav-logo">Johni<span>.</span></a>
+    <a href="#hero" class="nav-logo"><img src="assets/logo-jm.png" alt="J&amp;M Company" /></a>
     <ul class="nav-links">
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="https://wa.me/5562981834833" target="_blank" rel="noopener" class="nav-cta">Contato</a></li>
