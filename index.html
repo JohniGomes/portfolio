@@ -129,20 +129,25 @@
 
     /* ── SHARED CARD FACE ── */
     .card-media { position: absolute; inset: 0; background-size: cover; background-position: center; background-color: var(--brown); }
-    .card-media-slideshow { position: absolute; inset: 0; overflow: hidden; }
+    .card-media-slideshow { position: absolute; inset: 0; overflow: hidden; background: var(--brown-dark); }
     .card-media-frame {
       position: absolute; inset: 0;
-      background-size: cover; background-position: center; background-color: var(--brown);
       opacity: 0; transition: opacity 1.4s ease;
-      animation-duration: 10s; animation-timing-function: ease-in-out;
+      overflow: hidden;
+    }
+    .card-media-frame.active { opacity: 1; }
+    .card-media-frame img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: contain; object-position: center;
+      animation-duration: 11s; animation-timing-function: ease-in-out;
       animation-iteration-count: infinite; animation-direction: alternate;
       will-change: transform;
     }
-    .card-media-frame.active { opacity: 1; }
-    .card-media-frame.kb-a { animation-name: kenburnsA; }
-    .card-media-frame.kb-b { animation-name: kenburnsB; }
-    @keyframes kenburnsA { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.16) translate(-3%, -2%); } }
-    @keyframes kenburnsB { 0% { transform: scale(1.1) translate(-2%, 1%); } 100% { transform: scale(1.22) translate(1%, -3%); } }
+    .card-media-frame img.kb-a { animation-name: kenburnsA; }
+    .card-media-frame img.kb-b { animation-name: kenburnsB; }
+    @keyframes kenburnsA { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.32) translate(-2%, -1%); } }
+    @keyframes kenburnsB { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.32) translate(2%, 1%); } }
     .card-word {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
@@ -369,16 +374,22 @@
     // ── Dados dos projetos ──
     const PROJECTS = [
       {
-        type: 'SaaS · Edtech · Gamificação',
-        name: 'Arena Excel',
-        desc: 'Plataforma que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular, com rankings e desafios por níveis.',
-        images: ['imagens/arena2.png','imagens/arena3.png','imagens/arena4.png','imagens/arena5.png','imagens/arena1.png']
+        type: 'E-commerce · Next.js · Pagamentos',
+        name: 'Manda Prints · E-commerce',
+        desc: 'Loja de fotografias autorais em canvas, com checkout Mercado Pago, frete via Melhor Envio e rastreio de pedidos.',
+        images: ['imagens/manda.png','imagens/manda1.png','imagens/manda2.png','imagens/manda3.png','imagens/manda4.png','imagens/manda5.png','imagens/manda6.png']
       },
       {
-        type: 'Sistema Web · Saúde',
-        name: 'Centro Clínico e Odontológico GS',
-        desc: 'Sistema de controle de repasse para clínica odontológica, com login seguro e gestão financeira centralizada.',
-        images: ['imagens/centrogs3.png','imagens/centrogs2.png','imagens/centrogs4.png','imagens/centrogs1.png']
+        type: 'Sistema Web · Reservas',
+        name: 'VDO HUB',
+        desc: 'Aluguel de sala por período com reconhecimento facial, pagamento online e automação completa: do agendamento ao acesso.',
+        images: ['imagens/sala1.png','imagens/sala2.png','imagens/sala3.png']
+      },
+      {
+        type: 'SaaS · Next.js · B2B',
+        name: 'VDO Club',
+        desc: 'Plataforma B2B que conecta arquitetos a fornecedores, com diretório por categoria e fluxo de orçamento estilo CRM.',
+        images: ['imagens/vdoclub3.png','imagens/vdoclub2.png','imagens/vdoclub1.png','imagens/vdoclub.png']
       },
       {
         type: 'Sistema Web · Cultura',
@@ -393,16 +404,28 @@
         images: ['imagens/ergox3.png','imagens/ergox4.png','imagens/ergox2.png','imagens/ergox1.png']
       },
       {
+        type: 'Business Intelligence · Dados',
+        name: 'Dashboards Executivos · BI & HTML',
+        desc: 'Dashboards de performance em Power BI, Qlik Sense, Looker Studio e HTML para diretoria e lideranças.',
+        images: ['imagens/dashboard 1.png','imagens/Dashboard 2.png','imagens/dashboard 3.png','imagens/dashboard 4.png','imagens/dashboard 5.png']
+      },
+      {
+        type: 'SaaS · Edtech · Gamificação',
+        name: 'Arena Excel',
+        desc: 'Plataforma que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular, com rankings e desafios por níveis.',
+        images: ['imagens/arena2.png','imagens/arena3.png','imagens/arena4.png','imagens/arena5.png','imagens/arena1.png']
+      },
+      {
+        type: 'Sistema Web · Saúde',
+        name: 'Centro Clínico e Odontológico GS',
+        desc: 'Sistema de controle de repasse para clínica odontológica, com login seguro e gestão financeira centralizada.',
+        images: ['imagens/centrogs3.png','imagens/centrogs2.png','imagens/centrogs4.png','imagens/centrogs1.png']
+      },
+      {
         type: 'Automação · Python · Next.js',
         name: 'Automação de Contratos · Viver de Obra',
         desc: 'Geração automática de contratos em PDF, com OCR de documentos, banco SQLite e templates dinâmicos. Entregue em produção.',
         images: ['imagens/contratos1.png','imagens/contratos2.png','imagens/contratos3.png','imagens/contratos4.png']
-      },
-      {
-        type: 'Sistema Web · Comercial',
-        name: 'Automação Sala Comercial · Viver de Obra',
-        desc: 'Gestão da operação comercial com dashboard de KPIs e emissão de vouchers integrada.',
-        images: ['imagens/sala1.png','imagens/sala2.png','imagens/sala3.png']
       },
       {
         type: 'Automação · Python · Desktop',
@@ -415,18 +438,6 @@
         name: 'Automação de Prospecção de Clientes',
         desc: 'Coleta automática de leads, tratamento de dados CSV e disparo automático de e-mails de prospecção.',
         images: ['imagens/prospeccao.png']
-      },
-      {
-        type: 'Business Intelligence · Dados',
-        name: 'Dashboards Executivos · BI & HTML',
-        desc: 'Dashboards de performance em Power BI, Qlik Sense, Looker Studio e HTML para diretoria e lideranças.',
-        images: ['imagens/dashboard 1.png','imagens/Dashboard 2.png','imagens/dashboard 3.png','imagens/dashboard 4.png','imagens/dashboard 5.png']
-      },
-      {
-        type: 'SaaS · Next.js · B2B',
-        name: 'VDO Club',
-        desc: 'Plataforma B2B que conecta arquitetos a fornecedores, com diretório por categoria e fluxo de orçamento estilo CRM.',
-        images: ['imagens/vdoclub3.png','imagens/vdoclub2.png','imagens/vdoclub1.png','imagens/vdoclub.png']
       },
       {
         type: 'ERP · Next.js · Gestão',
@@ -451,23 +462,17 @@
         name: 'Conecta Estudante',
         desc: 'Protótipo de presença escolar com detecção facial, app do aluno, painel da secretaria e app dos responsáveis em tempo real.',
         images: ['imagens/conecta.png','imagens/conecta3.png','imagens/conecta2.png','imagens/conecta4.png','imagens/conecta1.png']
-      },
-      {
-        type: 'E-commerce · Next.js · Pagamentos',
-        name: 'Manda Prints · E-commerce',
-        desc: 'Loja de fotografias autorais em canvas, com checkout Mercado Pago, frete via Melhor Envio e rastreio de pedidos.',
-        images: ['imagens/manda.png','imagens/manda1.png','imagens/manda2.png','imagens/manda3.png','imagens/manda4.png','imagens/manda5.png','imagens/manda6.png']
       }
     ];
 
     function faceHTML(p) {
       if (p.images.length > 1) {
         const pos = p.pos || 'center';
-        const frames = p.images.map((img, i) => `<div class="card-media-frame ${i % 2 === 0 ? 'kb-a' : 'kb-b'}${i === 0 ? ' active' : ''}" style="background-image:url('${img}');background-position:${pos}"></div>`).join('');
+        const frames = p.images.map((img, i) => `<div class="card-media-frame${i === 0 ? ' active' : ''}"><img src="${img}" alt="" class="${i % 2 === 0 ? 'kb-a' : 'kb-b'}" style="object-position:${pos}"></div>`).join('');
         return `<div class="card-media-slideshow">${frames}</div>`;
       }
       if (p.images.length === 1) {
-        return `<div class="card-media-slideshow"><div class="card-media-frame kb-a active" style="background-image:url('${p.images[0]}');background-position:${p.pos || 'center'}"></div></div>`;
+        return `<div class="card-media-slideshow"><div class="card-media-frame active"><img src="${p.images[0]}" alt="" class="kb-a" style="object-position:${p.pos || 'center'}"></div></div>`;
       }
       return `<div class="card-media" style="background-color:${p.color}"></div><div class="card-word">${p.word}</div>`;
     }
