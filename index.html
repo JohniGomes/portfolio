@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Johni Michael | Gestor de Operações & Tech Builder</title>
-  <meta name="description" content="Portfolio de Johni Michael — Gestor de Operações Sênior, Tech Builder e Especialista em Dados." />
+  <title>Johni Michael | Projetos construídos</title>
+  <meta name="description" content="Portfolio de Johni Michael — sistemas, automações e dashboards construídos e entregues em produção." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -12,849 +12,299 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:       #593E2E;
-      --navy-mid:   #6e4a35;
-      --navy-light: #8C5B3E;
-      --gold:       #BF9B7A;
-      --gold-light: #d4b696;
-      --olive:      #555934;
-      --white:      #FAF3EC;
-      --gray-50:    #F2E6D8;
-      --gray-100:   #EDE0D0;
-      --gray-200:   #DCC9B0;
-      --gray-300:   #C9AF8E;
-      --gray-400:   #A98F72;
-      --gray-500:   #8C7259;
-      --gray-600:   #6B5744;
-      --text:       #3D2A1F;
-      --radius:     12px;
+      --cream:       #F2E6D8;
+      --panel:       #FFFDF9;
+      --olive:       #555934;
+      --olive-deep:  #3f4227;
+      --tan:         #BF9B7A;
+      --tan-deep:    #a3714a;
+      --brown:       #8C5B3E;
+      --brown-dark:  #593E2E;
+      --text:        #3D2A1F;
+      --text-soft:   #6B5744;
+      --line:        #DCC9B0;
+      --radius-lg:   28px;
+      --radius-md:   18px;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(89, 62, 46, 0.96);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(242, 230, 216, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
       height: 64px;
       display: flex;
       align-items: center;
       padding: 0 2rem;
       justify-content: space-between;
     }
-
-    .nav-logo {
-      font-weight: 800;
-      font-size: 1rem;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--gold); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      list-style: none;
-    }
+    .nav-logo { font-weight: 800; font-size: 1rem; color: var(--text); letter-spacing: -0.02em; text-decoration: none; }
+    .nav-logo span { color: var(--brown); }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
     .nav-links a {
-      color: var(--gray-400);
+      color: var(--text-soft);
       text-decoration: none;
       font-size: 0.85rem;
-      font-weight: 500;
-      transition: color 0.2s;
+      font-weight: 600;
       letter-spacing: 0.01em;
+      transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links .nav-curso { color: var(--gold); font-weight: 600; }
-    .nav-links .nav-curso:hover { color: var(--gold-light); }
-
+    .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 0.5rem 1.25rem;
-      border-radius: 8px;
+      background: var(--brown-dark);
+      color: var(--cream) !important;
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
       font-weight: 700 !important;
-      font-size: 0.85rem !important;
+      font-size: 0.82rem !important;
       transition: background 0.2s !important;
     }
-    .nav-cta:hover { background: var(--gold-light) !important; }
+    .nav-cta:hover { background: var(--olive-deep) !important; }
 
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span { display: block; width: 22px; height: 2px; background: var(--gray-300); border-radius: 2px; }
-
-    /* ── HERO ── */
+    /* ── HERO / STAGE ── */
     #hero {
-      min-height: 100vh;
-      background: var(--navy);
-      display: flex;
-      align-items: center;
-      padding: 100px 2rem 5rem;
       position: relative;
       overflow: hidden;
+      padding: 120px 1.5rem 6rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
     }
+    .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.5; pointer-events: none; z-index: 0; }
+    .blob-1 { width: 480px; height: 480px; background: var(--tan); top: -140px; left: -120px; }
+    .blob-2 { width: 440px; height: 440px; background: var(--olive); top: 20px; right: -160px; opacity: 0.35; }
+    .blob-3 { width: 420px; height: 420px; background: var(--brown); bottom: -200px; left: 28%; opacity: 0.4; }
 
-    .hero-glow {
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 55vw;
-      height: 55vw;
-      background: radial-gradient(circle, rgba(191,155,122,0.06) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero-glow-2 {
-      position: absolute;
-      bottom: -15%;
-      left: -10%;
-      width: 40vw;
-      height: 40vw;
-      background: radial-gradient(circle, rgba(191,155,122,0.04) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      max-width: 1200px;
+    .stage-panel {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
       margin: 0 auto;
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 5rem;
-      align-items: center;
-      position: relative;
+      background: var(--panel);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 30px 80px rgba(89,62,46,0.18), 0 2px 0 rgba(89,62,46,0.04);
+      padding: 2.5rem 2.5rem 2rem;
+      border: 1px solid rgba(220,201,176,0.6);
     }
 
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    .hero-title {
-      font-size: clamp(2.75rem, 5vw, 4.25rem);
-      font-weight: 900;
-      color: var(--white);
-      line-height: 1.05;
-      letter-spacing: -0.035em;
-      margin-bottom: 1.25rem;
-    }
-    .hero-title .line-gold { color: var(--gold); display: block; }
-
-    .hero-desc {
-      font-size: 1.05rem;
-      color: var(--gray-400);
-      max-width: 520px;
-      margin-bottom: 2.25rem;
-      line-height: 1.75;
-      font-weight: 400;
-    }
-
-    .hero-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .hero-chip {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--gray-300);
-      font-size: 0.78rem;
-      font-weight: 500;
-      padding: 0.35rem 0.875rem;
-      border-radius: 999px;
-    }
-    .hero-chip.highlight {
-      background: rgba(191,155,122,0.1);
-      border-color: rgba(191,155,122,0.25);
-      color: var(--gold);
-    }
-
-    .hero-actions { display: flex; gap: 0.875rem; flex-wrap: wrap; }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 0.875rem 1.875rem;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: all 0.2s;
-      letter-spacing: 0.01em;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(191,155,122,0.25); }
-
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: transparent;
-      color: var(--gray-300);
-      font-weight: 600;
-      font-size: 0.9rem;
-      padding: 0.875rem 1.875rem;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.15);
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
-    .hero-photo { position: relative; }
-    .hero-photo img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      border-radius: 20px;
-      filter: grayscale(15%);
-    }
-    .hero-photo::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, rgba(191,155,122,0.4), transparent 60%);
-      z-index: -1;
-    }
-    .hero-photo-tag {
-      position: absolute;
-      bottom: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 0.4rem 1.125rem;
-      border-radius: 999px;
-      white-space: nowrap;
-      letter-spacing: 0.02em;
-    }
-
-    /* ── SEÇÃO GENÉRICA ── */
-    section { }
-
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-
-    .section-header { margin-bottom: 3rem; }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-    .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); }
-
-    .section-title {
-      font-size: clamp(1.75rem, 3vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.15;
-    }
-    .section-title.on-dark { color: var(--white); }
-    .section-title.on-light { color: var(--navy); }
-
-    .section-sub {
-      margin-top: 0.625rem;
-      font-size: 1rem;
-      font-weight: 400;
-      max-width: 520px;
-    }
-    .section-sub.on-dark { color: var(--gray-400); }
-    .section-sub.on-light { color: var(--gray-500); }
-
-    /* ── NÚMEROS ── */
-    #numeros {
-      background: var(--navy);
-      padding: 5rem 2rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .numeros-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 16px;
-      overflow: hidden;
-      margin-top: 3rem;
-    }
-
-    .numero-card {
-      background: rgba(255,255,255,0.025);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      transition: background 0.2s;
-    }
-    .numero-card:hover { background: rgba(191,155,122,0.06); }
-
-    .numero-value {
-      font-size: 2.25rem;
-      font-weight: 900;
-      color: var(--gold);
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 0.5rem;
-      word-break: break-word;
-    }
-    .numero-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--white);
-      margin-bottom: 0.25rem;
-    }
-    .numero-context { font-size: 0.72rem; color: var(--gray-500); }
-
-    /* ── PILARES ── */
-    #pilares {
-      padding: 6rem 2rem;
-      background: var(--gray-50);
-    }
-
-    .pilares-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .pilar-card {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .pilar-card:hover { border-color: var(--gold); transform: translateY(-3px); }
-
-    .pilar-number {
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-    }
-    .pilar-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.01em;
-    }
-    .pilar-desc {
-      font-size: 0.875rem;
-      color: var(--gray-500);
-      line-height: 1.75;
-      margin-bottom: 1.25rem;
-    }
-    .pilar-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; }
-    .pilar-tag {
-      background: var(--gray-100);
-      color: var(--gray-600);
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 0.25rem 0.625rem;
-      border-radius: 6px;
-    }
-
-    /* ── PROJETOS ── */
-    #projetos {
-      padding: 6rem 2rem;
-      background: var(--white);
-    }
-
-    .filtros {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    .filtro-btn {
-      background: none;
-      border: 1px solid var(--gray-200);
-      color: var(--gray-500);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 0.45rem 1.125rem;
-      border-radius: 999px;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      transition: all 0.2s;
-    }
-    .filtro-btn:hover { border-color: var(--navy); color: var(--navy); }
-    .filtro-btn.active {
-      background: var(--navy);
-      border-color: var(--navy);
-      color: var(--white);
-    }
-
-    .projetos-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 2rem;
-      grid-auto-rows: auto;
-    }
-
-    .projeto-card {
-      border: 1px solid var(--gray-200);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
-      display: flex;
-      flex-direction: column;
-      background: var(--white);
-    }
-    .projeto-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-    }
-    /* Slideshow thumb */
-    .projeto-thumb {
-      background: var(--navy);
-      height: 220px;
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .slideshow { position: absolute; inset: 0; }
-    .slideshow img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: contain;
-      background: var(--navy);
-      opacity: 0;
-      transition: opacity 0.7s ease;
-    }
-    .slideshow img.active { opacity: 1; }
-
-    .slide-dots {
-      position: absolute;
-      bottom: 10px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; gap: 5px;
-      z-index: 4;
-    }
-    .slide-dot {
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-    .slide-dot.active { background: var(--gold); transform: scale(1.4); }
-
-    .thumb-badge {
-      position: absolute;
-      top: 12px; left: 12px;
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 0.65rem;
-      font-weight: 800;
-      padding: 0.2rem 0.6rem;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      z-index: 3;
-    }
-
-    .thumb-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-    }
-    .thumb-placeholder-icon {
-      width: 48px; height: 48px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .thumb-placeholder-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-    .thumb-placeholder-text { font-size: 0.75rem; color: rgba(255,255,255,0.3); letter-spacing: 0.06em; font-weight: 600; text-transform: uppercase; }
-
-    .projeto-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
-
-    .projeto-tipo {
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.4rem;
-    }
-    .projeto-nome {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.625rem;
-      letter-spacing: -0.01em;
-    }
-    .projeto-desc {
-      font-size: 0.845rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-      flex: 1;
-    }
-    .projeto-resultado {
-      margin-top: 1rem;
-      padding: 0.625rem 0.875rem;
-      background: var(--gray-50);
-      border-left: 2px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      font-size: 0.8rem;
-      color: var(--navy);
-      font-weight: 600;
-    }
-    .projeto-stack {
-      display: flex; flex-wrap: wrap; gap: 0.35rem;
-      margin-top: 1rem;
-    }
-    .projeto-stack span {
-      background: var(--gray-100);
-      color: var(--gray-600);
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.5rem;
-      border-radius: 5px;
-    }
-    .projeto-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 1.125rem;
-      color: var(--gold);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: gap 0.2s;
-    }
-    .projeto-link:hover { gap: 0.6rem; }
-
-    /* ── TRAJETÓRIA ── */
-    #trajetoria {
-      padding: 6rem 2rem;
-      background: var(--navy);
-    }
-
-    .timeline {
-      position: relative;
-      margin-top: 3rem;
-      padding-left: 1.5rem;
-      max-width: 820px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 8px; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, var(--gold), rgba(191,155,122,0.05));
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 2.25rem;
-      padding-bottom: 2.75rem;
-    }
-    .timeline-item:last-child { padding-bottom: 0; }
-
-    .timeline-dot {
-      position: absolute;
-      left: -2rem;
-      top: 5px;
-      width: 12px; height: 12px;
-      border-radius: 50%;
-      background: var(--gold);
-      border: 3px solid var(--navy);
-      box-shadow: 0 0 0 1px var(--gold);
-    }
-    .timeline-dot.current {
-      background: var(--gold);
-      box-shadow: 0 0 0 4px rgba(191,155,122,0.2);
-    }
-
-    .timeline-period {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .badge-current {
-      background: rgba(191,155,122,0.12);
-      border: 1px solid rgba(191,155,122,0.3);
-      color: var(--gold);
-      font-size: 0.6rem;
-      padding: 0.1rem 0.5rem;
-      border-radius: 999px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .timeline-role {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 0.125rem;
-      letter-spacing: -0.01em;
-    }
-    .timeline-company {
-      font-size: 0.82rem;
-      color: var(--gray-500);
-      margin-bottom: 0.875rem;
-    }
-    .timeline-highlights { display: flex; flex-direction: column; gap: 0.35rem; }
-    .timeline-highlight {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.625rem;
-      font-size: 0.845rem;
-      color: var(--gray-400);
-    }
-    .timeline-highlight::before {
-      content: '';
-      display: block;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 7px;
-    }
-
-    /* ── SKILLS ── */
-    #skills {
-      padding: 6rem 2rem;
-      background: var(--gray-50);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-      margin-top: 3rem;
-    }
-
-    .skill-group {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 14px;
-      padding: 1.5rem;
-    }
-
-    .skill-group-label {
-      font-size: 0.68rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.25rem;
-      padding-bottom: 0.75rem;
-      border-bottom: 1px solid var(--gray-100);
-    }
-
-    .skill-list { display: flex; flex-direction: column; gap: 0.875rem; }
-    .skill-item { display: flex; flex-direction: column; gap: 0.3rem; }
-    .skill-name {
+    .stage-header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--line);
     }
-    .skill-name span:first-child { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
-    .skill-level-label { font-size: 0.68rem; color: var(--gray-400); font-weight: 500; }
-    .skill-bar {
-      height: 4px;
-      background: var(--gray-100);
-      border-radius: 999px;
-      overflow: hidden;
+    .stage-name { font-weight: 800; font-size: 0.95rem; letter-spacing: -0.01em; }
+    .stage-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-soft);
     }
-    .skill-fill {
+
+    .stage-title {
+      margin-bottom: 2rem;
+    }
+    .stage-title h1 {
+      font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin-bottom: 0.75rem;
+    }
+    .stage-title h1 em { color: var(--brown); font-style: normal; }
+    .stage-title p {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── STACK CAROUSEL ── */
+    .stack-viewport {
+      position: relative;
+      height: 440px;
+      touch-action: pan-y;
+    }
+    .stack-card {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: min(600px, 100%);
       height: 100%;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: grab;
+      box-shadow: 0 24px 55px rgba(61,42,31,0.28);
+      transition: transform 0.5s cubic-bezier(.22,1,.36,1), opacity 0.5s ease;
+      user-select: none;
+    }
+    .stack-card.dragging { transition: none; cursor: grabbing; }
+    .stack-card-media {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--brown);
+    }
+    .stack-card-word {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: clamp(1.6rem, 4.4vw, 2.6rem);
+      font-weight: 900;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: -0.02em;
+      text-align: center;
+      padding: 2rem;
+      pointer-events: none;
+    }
+    .stack-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,13,9,0.78) 0%, rgba(20,13,9,0.15) 45%, transparent 65%);
+      pointer-events: none;
+    }
+    .stack-card-link {
+      position: absolute; top: 16px; right: 16px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      z-index: 2;
+      transition: background 0.2s;
+    }
+    .stack-card-link:hover { background: rgba(255,255,255,0.32); }
+    .stack-card-text {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 1.75rem;
+      color: #fff;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .stack-card-type {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; opacity: 0.85; margin-bottom: 0.4rem;
+    }
+    .stack-card-text h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+    .stack-card-text p { font-size: 0.85rem; opacity: 0.88; max-width: 440px; line-height: 1.55; }
+    .stack-card-stack-tag {
+      display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem;
+    }
+    .stack-card-stack-tag span {
+      background: rgba(255,255,255,0.16);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.2rem 0.55rem;
       border-radius: 999px;
     }
+
+    .stack-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.75rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .stack-counter { font-size: 0.8rem; font-weight: 700; color: var(--text-soft); letter-spacing: 0.02em; }
+    .stack-dots { display: flex; gap: 5px; flex-wrap: wrap; max-width: 280px; }
+    .stack-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); cursor: pointer; transition: all 0.25s; }
+    .stack-dot.active { background: var(--brown); transform: scale(1.5); }
+    .stack-nav { display: flex; gap: 0.5rem; }
+    .stack-nav button {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--text);
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .stack-nav button:hover { background: var(--brown-dark); color: var(--cream); border-color: var(--brown-dark); }
 
     /* ── CONTATO ── */
     #contato {
-      padding: 7rem 2rem;
-      background: var(--navy);
-    }
-
-    .contato-inner {
-      max-width: 680px;
-      margin: 0 auto;
+      padding: 6rem 1.5rem;
+      background: var(--cream);
       text-align: center;
     }
+    .contato-inner { max-width: 620px; margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--brown); margin-bottom: 1rem;
+      justify-content: center; width: 100%;
+    }
+    .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--brown); }
     .contato-title {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.9rem, 3.6vw, 2.75rem);
       font-weight: 900;
-      color: var(--white);
       letter-spacing: -0.03em;
       line-height: 1.1;
       margin-bottom: 1rem;
     }
-    .contato-title span { color: var(--gold); }
-    .contato-desc { color: var(--gray-400); font-size: 1rem; margin-bottom: 2.75rem; }
-
-    .contato-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.875rem;
-      margin-bottom: 3rem;
-    }
+    .contato-title span { color: var(--brown); }
+    .contato-desc { color: var(--text-soft); font-size: 1rem; margin-bottom: 2.5rem; }
+    .contato-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.875rem; }
     .contato-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.875rem 1.625rem;
-      border-radius: 10px;
+      border-radius: 999px;
       font-weight: 600;
       font-size: 0.9rem;
       text-decoration: none;
       transition: all 0.2s;
     }
-    .contato-link.primary { background: var(--gold); color: var(--navy); }
-    .contato-link.primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .contato-link.primary { background: var(--brown-dark); color: var(--cream); }
+    .contato-link.primary:hover { background: var(--olive-deep); transform: translateY(-2px); }
     .contato-link.ghost {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--gray-300);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      color: var(--text);
     }
-    .contato-link.ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-
-    .contato-meta {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.75rem;
-    }
-    .contato-meta-item {
-      font-size: 0.82rem;
-      color: var(--gray-600);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .contato-meta-item::before {
-      content: '';
-      display: block;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: var(--gold);
-    }
+    .contato-link.ghost:hover { border-color: var(--brown); color: var(--brown); transform: translateY(-2px); }
 
     /* ── FOOTER ── */
     footer {
-      background: #2e1f17;
+      background: var(--panel);
       padding: 1.75rem 2rem;
       text-align: center;
-      color: var(--gray-600);
+      color: var(--text-soft);
       font-size: 0.78rem;
-      border-top: 1px solid rgba(255,255,255,0.04);
+      border-top: 1px solid var(--line);
     }
 
     /* ── ANIMAÇÕES ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── HIDDEN (filtro projetos) ── */
-    .projeto-card.hidden {
-      display: none;
-    }
-
     /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .numeros-grid { grid-template-columns: repeat(4, 1fr); }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 720px) {
+      .stage-panel { padding: 1.75rem 1.25rem 1.5rem; }
+      .stack-viewport { height: 380px; }
+      .stack-card-text { padding: 1.25rem; }
+      .stack-card-text h3 { font-size: 1.1rem; }
+      .nav-links { gap: 0.75rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
     }
-
-    @media (max-width: 900px) {
-      .hero-inner { grid-template-columns: 1fr; text-align: center; }
-      .hero-photo { order: -1; max-width: 260px; margin: 0 auto; }
-      .hero-chips, .hero-actions { justify-content: center; }
-      .hero-label { justify-content: center; }
-      .hero-desc { margin: 0 auto 2.25rem; }
-      .pilares-grid { grid-template-columns: 1fr; }
-      .projetos-grid { grid-template-columns: repeat(2, 1fr); }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 64px; left: 0; right: 0;
-        background: var(--navy);
-        padding: 1.5rem 2rem 2rem;
-        gap: 1.25rem;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-      }
-    }
-
-    @media (max-width: 700px) {
-      .numeros-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
-      .numero-card { padding: 1.375rem 1rem; }
-      .numero-value { font-size: 1.75rem; }
-      #numeros { padding: 3.5rem 1rem; }
-      .projetos-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 360px) {
-      .numeros-grid { grid-template-columns: 1fr; }
+    @media (max-width: 420px) {
+      .stack-viewport { height: 340px; }
     }
   </style>
 </head>
@@ -863,616 +313,185 @@
   <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-logo">Johni<span>.</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#numeros">Resultados</a></li>
+    <ul class="nav-links">
       <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#trajetoria">Trajetória</a></li>
-      <li><a href="#skills">Skills</a></li>
       <li><a href="#contato" class="nav-cta">Contato</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO / STAGE -->
   <section id="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-glow-2"></div>
-    <div class="hero-inner">
-      <div>
-        <div class="hero-label">Disponível para novos projetos</div>
-        <h1 class="hero-title">
-          Johni Michael
-          <span class="line-gold">Operações que se constroem sozinhas.</span>
-        </h1>
-        <p class="hero-desc">Gestor de Operações Sênior com records LATAM em Amazon e Mercado Livre. Construo sistemas, automações e dashboards que resolvem problemas reais.</p>
-        <div class="hero-chips">
-          <span class="hero-chip highlight">No. 1 Produtividade LATAM — Mercado Livre</span>
-          <span class="hero-chip highlight">No. 1 Acuracidade LATAM — Amazon</span>
-          <span class="hero-chip">Goiânia / GO</span>
-          <span class="hero-chip">8+ anos</span>
-        </div>
-        <div class="hero-actions">
-          <a href="#projetos" class="btn-primary">Ver projetos</a>
-          <a href="assets/CV_Johni.pdf" download class="btn-outline">Baixar CV</a>
-        </div>
-      </div>
-      <div class="hero-photo">
-        <img src="assets/johni.jpg" alt="Johni Michael Gomes dos Santos" />
-        <div class="hero-photo-tag">Pós FGV · Lean · Dados</div>
-      </div>
-    </div>
-  </section>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
-  <!-- NÚMEROS -->
-  <section id="numeros">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="eyebrow">Impacto real</div>
-        <h2 class="section-title on-dark">Números que provam</h2>
-        <p class="section-sub on-dark">8 anos de entrega consistente. Resultados que ficaram para a história.</p>
-      </div>
-      <div class="numeros-grid">
-        <div class="numero-card fade-up">
-          <div class="numero-value">No. 1</div>
-          <div class="numero-label">Produtividade LATAM</div>
-          <div class="numero-context">Inbound & Outbound — Mercado Livre</div>
-        </div>
-        <div class="numero-card fade-up">
-          <div class="numero-value">No. 1</div>
-          <div class="numero-label">Acuracidade LATAM</div>
-          <div class="numero-context">Amazon — 1 erro no inventário</div>
-        </div>
-        <div class="numero-card fade-up">
-          <div class="numero-value">99.5%</div>
-          <div class="numero-label">SLA mantido</div>
-          <div class="numero-context">Mercado Livre Brasília</div>
-        </div>
-        <div class="numero-card fade-up">
-          <div class="numero-value">20→3%</div>
-          <div class="numero-label">Absenteísmo</div>
-          <div class="numero-context">Redução em 6 meses</div>
-        </div>
-        <div class="numero-card fade-up">
-          <div class="numero-value">R$ 1M</div>
-          <div class="numero-label">Saving gerado</div>
-          <div class="numero-context">Leroy Merlin — Supply Chain</div>
-        </div>
-        <div class="numero-card fade-up">
-          <div class="numero-value">70→95</div>
-          <div class="numero-label">NPS operacional</div>
-          <div class="numero-context">Leroy Merlin — Regional CO</div>
-        </div>
-        <div class="numero-card fade-up">
-          <div class="numero-value">200+</div>
-          <div class="numero-label">Alunos formados</div>
-          <div class="numero-context">J&M Company</div>
-        </div>
-        <div class="numero-card fade-up">
-          <div class="numero-value">300+</div>
-          <div class="numero-label">Projetos entregues</div>
-          <div class="numero-context">Sistemas, automações e dashboards</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PILARES -->
-  <section id="pilares">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="eyebrow">O que entrego</div>
-        <h2 class="section-title on-light">Três frentes, um resultado</h2>
-        <p class="section-sub on-light">Não sou só gestor. Não sou só analista. Construo as ferramentas que precisam existir para a operação funcionar.</p>
-      </div>
-      <div class="pilares-grid">
-        <div class="pilar-card fade-up">
-          <div class="pilar-number">01</div>
-          <h3 class="pilar-title">Operações & Supply Chain</h3>
-          <p class="pilar-desc">Gestão de centros de distribuição, fulfillment, times multifuncionais e melhoria contínua. De 100 colaboradores a records LATAM em Amazon e Mercado Livre.</p>
-          <div class="pilar-tags">
-            <span class="pilar-tag">Lean Manufacturing</span>
-            <span class="pilar-tag">Kaizen</span>
-            <span class="pilar-tag">5S / PDCA</span>
-            <span class="pilar-tag">Fulfillment</span>
-            <span class="pilar-tag">KPIs</span>
-          </div>
-        </div>
-        <div class="pilar-card fade-up">
-          <div class="pilar-number">02</div>
-          <h3 class="pilar-title">Dados & Business Intelligence</h3>
-          <p class="pilar-desc">Do dado bruto ao dashboard executivo. Power BI, Qlik Sense, Looker Studio e HTML para tomada de decisão em tempo real.</p>
-          <div class="pilar-tags">
-            <span class="pilar-tag">Power BI</span>
-            <span class="pilar-tag">Qlik Sense</span>
-            <span class="pilar-tag">Looker Studio</span>
-            <span class="pilar-tag">SQL</span>
-            <span class="pilar-tag">Excel</span>
-          </div>
-        </div>
-        <div class="pilar-card fade-up">
-          <div class="pilar-number">03</div>
-          <h3 class="pilar-title">Sistemas & Automação</h3>
-          <p class="pilar-desc">Sistemas do zero para resolver problemas reais. SaaS, automações Python, ferramentas VBA e aplicativos web para empresas de diferentes segmentos.</p>
-          <div class="pilar-tags">
-            <span class="pilar-tag">Python</span>
-            <span class="pilar-tag">VBA</span>
-            <span class="pilar-tag">HTML / CSS</span>
-            <span class="pilar-tag">App Script</span>
-            <span class="pilar-tag">SAP</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJETOS -->
-  <section id="projetos">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="eyebrow">Portfolio</div>
-        <h2 class="section-title on-light">Projetos que entregam resultado</h2>
-        <p class="section-sub on-light">Cada projeto nasceu de um problema real.</p>
-        <div class="filtros">
-          <button class="filtro-btn active" data-filter="all">Todos</button>
-          <button class="filtro-btn" data-filter="sistema">Sistemas & Apps</button>
-          <button class="filtro-btn" data-filter="automacao">Automações</button>
-          <button class="filtro-btn" data-filter="dados">Dados & BI</button>
-        </div>
+    <div class="stage-panel fade-up" id="projetos">
+      <div class="stage-header">
+        <span class="stage-name">Johni Michael</span>
+        <span class="stage-label">Trabalhos construídos — Sistemas &amp; Automações</span>
       </div>
 
-      <div class="projetos-grid">
+      <div class="stage-title">
+        <h1>Projetos que <em>saíram do papel.</em></h1>
+        <p>Gestor de Operações e Tech Builder. Cada card abaixo é um sistema, app ou automação que construí e entreguei — arraste para navegar.</p>
+      </div>
 
-        <!-- Arena Excel -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb" >
-            <div class="slideshow" id="slide-arena">
-              <img src="imagens/arena1.png" alt="Arena Excel" class="active" />
-              <img src="imagens/arena2.png" alt="Arena Excel" />
-              <img src="imagens/arena3.png" alt="Arena Excel" />
-              <img src="imagens/arena4.png" alt="Arena Excel" />
-              <img src="imagens/arena5.png" alt="Arena Excel" />
-            </div>
-            <div class="slide-dots" id="dots-arena"></div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">SaaS · Edtech · Gamificação</div>
-            <h3 class="projeto-nome">Arena Excel</h3>
-            <p class="projeto-desc">Plataforma SaaS que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular. Rankings, desafios e progressão por níveis para democratizar uma habilidade essencial no mercado.</p>
-            <div class="projeto-resultado">Plataforma ativa com domínio próprio e usuários reais.</div>
-            <div class="projeto-stack">
-              <span>HTML / CSS</span><span>JavaScript</span><span>Gamificação</span>
-            </div>
-            <a href="https://johniGomes.github.io/arena-excel" target="_blank" rel="noopener" class="projeto-link">Acessar plataforma →</a>
+      <div class="stack-viewport" id="stackViewport">
+
+        <div class="stack-card" data-index="0" data-url="https://johniGomes.github.io/arena-excel">
+          <div class="stack-card-media" style="background-image:url('imagens/arena3.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <a class="stack-card-link" href="https://johniGomes.github.io/arena-excel" target="_blank" rel="noopener" aria-label="Abrir Arena Excel">↗</a>
+          <div class="stack-card-text">
+            <div class="stack-card-type">SaaS · Edtech · Gamificação</div>
+            <h3>Arena Excel</h3>
+            <p>Plataforma que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular, com rankings e desafios por níveis.</p>
           </div>
         </div>
 
-        <!-- Clínica -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-clinica">
-              <img src="imagens/centrogs1.png" alt="Centro Clínico GS" class="active" />
-              <img src="imagens/centrogs2.png" alt="Centro Clínico GS" />
-              <img src="imagens/centrogs3.png" alt="Centro Clínico GS" />
-              <img src="imagens/centrogs4.png" alt="Centro Clínico GS" />
-            </div>
-            <div class="slide-dots" id="dots-clinica"></div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Sistema Web · Saúde</div>
-            <h3 class="projeto-nome">Centro Clínico e Odontológico GS</h3>
-            <p class="projeto-desc">Sistema de controle de repasse desenvolvido para clínica odontológica. Login seguro, gestão financeira centralizada e rastreabilidade total dos repasses.</p>
-            <div class="projeto-resultado">Gestão centralizada com acesso restrito e auditoria completa.</div>
-            <div class="projeto-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <div class="stack-card" data-index="1">
+          <div class="stack-card-media" style="background-image:url('imagens/centrogs1.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Sistema Web · Saúde</div>
+            <h3>Centro Clínico e Odontológico GS</h3>
+            <p>Sistema de controle de repasse para clínica odontológica, com login seguro e gestão financeira centralizada.</p>
           </div>
         </div>
 
-        <!-- Museu -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-museu">
-              <img src="imagens/museu1.png" alt="Museu de Cera RJ" class="active" />
-              <img src="imagens/museu2.png" alt="Museu de Cera RJ" />
-              <img src="imagens/museu3.png" alt="Museu de Cera RJ" />
-              <img src="imagens/Museu4.png" alt="Museu de Cera RJ" />
-            </div>
-            <div class="slide-dots" id="dots-museu"></div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Sistema Web · Cultura</div>
-            <h3 class="projeto-nome">Sistema Museu de Cera RJ</h3>
-            <p class="projeto-desc">Sistema de lançamento de vendas e controle de acesso para o Museu de Cera RJ. Área restrita, controle de tickets e visibilidade operacional em tempo real.</p>
-            <div class="projeto-resultado">Operação de vendas digitalizada com rastreamento de fluxo.</div>
-            <div class="projeto-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <div class="stack-card" data-index="2">
+          <div class="stack-card-media" style="background-image:url('imagens/museu1.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Sistema Web · Cultura</div>
+            <h3>Sistema Museu de Cera RJ</h3>
+            <p>Lançamento de vendas e controle de acesso do museu, com área restrita e visibilidade operacional em tempo real.</p>
           </div>
         </div>
 
-        <!-- ErgoX -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-ergox">
-              <img src="imagens/ergox1.png" alt="ErgoX" class="active" />
-              <img src="imagens/ergox2.png" alt="ErgoX" />
-              <img src="imagens/ergox3.png" alt="ErgoX" />
-              <img src="imagens/ergox4.png" alt="ErgoX" />
-            </div>
-            <div class="slide-dots" id="dots-ergox"></div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Sistema Web · Ergonomia</div>
-            <h3 class="projeto-nome">ErgoX — Gestão Ergonômica</h3>
-            <p class="projeto-desc">Sistema web com 3 módulos para gestão de AET e Planos de Ação ergonômicos. Semáforo de status automático, gráficos de criticidade por setor e CRUD completo via Google Sheets + Apps Script.</p>
-            <div class="projeto-resultado">Gestão completa de AETs e planos de ação em uma única interface.</div>
-            <div class="projeto-stack"><span>HTML</span><span>JavaScript</span><span>Google Sheets</span><span>Apps Script</span></div>
+        <div class="stack-card" data-index="3">
+          <div class="stack-card-media" style="background-image:url('imagens/ergox1.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Sistema Web · Ergonomia</div>
+            <h3>ErgoX — Gestão Ergonômica</h3>
+            <p>Sistema com 3 módulos para gestão de AET e Planos de Ação, com semáforo automático e CRUD via Google Sheets + Apps Script.</p>
           </div>
         </div>
 
-        <!-- Automação Contratos -->
-        <div class="projeto-card fade-up" data-cat="automacao">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-contratos">
-              <img src="imagens/contratos1.png" alt="Automação Contratos" class="active" />
-              <img src="imagens/contratos2.png" alt="Automação Contratos" />
-              <img src="imagens/contratos3.png" alt="Automação Contratos" />
-              <img src="imagens/contratos4.png" alt="Automação Contratos" />
-            </div>
-            <div class="slide-dots" id="dots-contratos"></div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Automação · Python · Next.js</div>
-            <h3 class="projeto-nome">Automação de Contratos — Viver de Obra</h3>
-            <p class="projeto-desc">Sistema completo para geração automática de contratos em PDF. OCR para leitura de documentos, banco de dados SQLite, templates dinâmicos e interface Next.js. Entregue em produção.</p>
-            <div class="projeto-resultado">Geração de contratos reduzida de horas para segundos.</div>
-            <div class="projeto-stack"><span>Python</span><span>Flask</span><span>Next.js</span><span>SQLite</span><span>OCR</span></div>
+        <div class="stack-card" data-index="4">
+          <div class="stack-card-media" style="background-image:url('imagens/contratos1.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Automação · Python · Next.js</div>
+            <h3>Automação de Contratos — Viver de Obra</h3>
+            <p>Geração automática de contratos em PDF, com OCR de documentos, banco SQLite e templates dinâmicos. Entregue em produção.</p>
           </div>
         </div>
 
-        <!-- Sala Comercial -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-sala">
-              <img src="imagens/sala1.png" alt="Sala Comercial" class="active" />
-              <img src="imagens/sala2.png" alt="Sala Comercial" />
-              <img src="imagens/sala3.png" alt="Sala Comercial" />
-            </div>
-            <div class="slide-dots" id="dots-sala"></div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Sistema Web · Comercial</div>
-            <h3 class="projeto-nome">Automação Sala Comercial — Viver de Obra</h3>
-            <p class="projeto-desc">Sistema de gestão da operação comercial com dashboard de KPIs e emissão de vouchers. Controle centralizado do fluxo de vendas e geração de comprovantes para a equipe.</p>
-            <div class="projeto-resultado">Operação comercial digitalizada com emissão de vouchers integrada.</div>
-            <div class="projeto-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span></div>
+        <div class="stack-card" data-index="5">
+          <div class="stack-card-media" style="background-image:url('imagens/sala1.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Sistema Web · Comercial</div>
+            <h3>Automação Sala Comercial — Viver de Obra</h3>
+            <p>Gestão da operação comercial com dashboard de KPIs e emissão de vouchers integrada.</p>
           </div>
         </div>
 
-        <!-- Agente NFs -->
-        <div class="projeto-card fade-up" data-cat="automacao">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-python">
-              <img src="imagens/agentepython.png" alt="Agente de NFs" class="active" />
-            </div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Automação · Python · Desktop</div>
-            <h3 class="projeto-nome">Agente de Processamento de NFs</h3>
-            <p class="projeto-desc">Aplicação desktop em Python para extração e organização automática de notas fiscais. Pasta de entrada, pasta do cliente e planilha de custos integradas em um único fluxo.</p>
-            <div class="projeto-resultado">Horas de trabalho manual substituídas por processamento em segundos.</div>
-            <div class="projeto-stack"><span>Python</span><span>Tkinter</span><span>Pandas</span></div>
+        <div class="stack-card" data-index="6">
+          <div class="stack-card-media" style="background-image:url('imagens/agentepython.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Automação · Python · Desktop</div>
+            <h3>Agente de Processamento de NFs</h3>
+            <p>Aplicação desktop para extração e organização automática de notas fiscais, com planilha de custos integrada.</p>
           </div>
         </div>
 
-        <!-- Prospecção -->
-        <div class="projeto-card fade-up" data-cat="automacao">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-prospeccao">
-              <img src="imagens/prospeccao.png" alt="Prospecção" class="active" />
-            </div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Automação · Python · Leads</div>
-            <h3 class="projeto-nome">Automação de Prospecção de Clientes</h3>
-            <p class="projeto-desc">Scripts Python para coleta automática de leads, tratamento e normalização de dados CSV e disparo automático de e-mails de prospecção personalizados.</p>
-            <div class="projeto-resultado">Pipeline de prospecção totalmente automatizado do lead ao contato.</div>
-            <div class="projeto-stack"><span>Python</span><span>Pandas</span><span>SMTP</span></div>
+        <div class="stack-card" data-index="7">
+          <div class="stack-card-media" style="background-image:url('imagens/prospeccao.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Automação · Python · Leads</div>
+            <h3>Automação de Prospecção de Clientes</h3>
+            <p>Coleta automática de leads, tratamento de dados CSV e disparo automático de e-mails de prospecção.</p>
           </div>
         </div>
 
-        <!-- Dashboards -->
-        <div class="projeto-card fade-up" data-cat="dados">
-          <div class="projeto-thumb">
-            <div class="slideshow" id="slide-dash">
-              <img src="imagens/dashboard 1.png" alt="Dashboard" class="active" />
-              <img src="imagens/Dashboard 2.png" alt="Dashboard" />
-              <img src="imagens/dashboard 3.png" alt="Dashboard" />
-              <img src="imagens/dashboard 4.png" alt="Dashboard" />
-              <img src="imagens/dashboard 5.png" alt="Dashboard" />
-            </div>
-            <div class="slide-dots" id="dots-dash"></div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Business Intelligence · Dados</div>
-            <h3 class="projeto-nome">Dashboards Executivos — BI & HTML</h3>
-            <p class="projeto-desc">Dashboards de performance em Power BI, Qlik Sense, Looker Studio e HTML para diretoria. KPIs de estoque, produtividade, SLA e indicadores operacionais.</p>
-            <div class="projeto-resultado">Decisões em tempo real baseadas em dados para lideranças da Leroy Merlin e outros clientes.</div>
-            <div class="projeto-stack"><span>Power BI</span><span>Qlik Sense</span><span>Looker Studio</span><span>HTML</span><span>SQL</span></div>
+        <div class="stack-card" data-index="8">
+          <div class="stack-card-media" style="background-image:url('imagens/dashboard 1.png')"></div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Business Intelligence · Dados</div>
+            <h3>Dashboards Executivos — BI &amp; HTML</h3>
+            <p>Dashboards de performance em Power BI, Qlik Sense, Looker Studio e HTML para diretoria e lideranças.</p>
           </div>
         </div>
 
-        <!-- VDO Club -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="thumb-placeholder">
-              <div class="thumb-placeholder-icon">
-                <svg viewBox="0 0 24 24"><path d="M3 7h18M3 7v12a1 1 0 001 1h16a1 1 0 001-1V7M3 7l2-4h14l2 4M9 11h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="thumb-placeholder-text">VDO Club</div>
-            </div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">SaaS · Next.js · B2B</div>
-            <h3 class="projeto-nome">VDO Club</h3>
-            <p class="projeto-desc">Plataforma B2B que conecta arquitetos a fornecedores de material de construção. Diretório de fornecedores por categoria e avaliação, fluxo de orçamento com CRM simplificado (solicitação → resposta → fechamento) e painel admin para aprovações e links de indicação.</p>
-            <div class="projeto-resultado">Fluxo completo de conexão arquiteto–fornecedor, do cadastro ao fechamento do negócio.</div>
-            <div class="projeto-stack"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Tailwind CSS</span></div>
+        <div class="stack-card" data-index="9">
+          <div class="stack-card-media" style="background-color:var(--olive)"></div>
+          <div class="stack-card-word">VDO CLUB</div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">SaaS · Next.js · B2B</div>
+            <h3>VDO Club</h3>
+            <p>Plataforma B2B que conecta arquitetos a fornecedores, com diretório por categoria e fluxo de orçamento estilo CRM.</p>
           </div>
         </div>
 
-        <!-- ERP Tamboleco -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="thumb-placeholder">
-              <div class="thumb-placeholder-icon">
-                <svg viewBox="0 0 24 24"><path d="M3 17h1V8a1 1 0 011-1h8a1 1 0 011 1v9h1m-11 0h11m-11 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0m15 0a2 2 0 11-4 0m4 0a2 2 0 10-4 0m4 0h2v-4l-2-3h-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="thumb-placeholder-text">ERP Tamboleco</div>
-            </div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">ERP · Next.js · Gestão</div>
-            <h3 class="projeto-nome">ERP Tamboleco</h3>
-            <p class="projeto-desc">Sistema de gestão completo para empresa de locação de caçambas (Tamboleco Mini Entulho). Controle de clientes, locações com cálculo automático de valores, inventário de caçambas por status, contas a pagar/receber, emissão de recibos em PDF e dashboards de faturamento.</p>
-            <div class="projeto-resultado">Operação de locação e financeiro centralizados em um único sistema.</div>
-            <div class="projeto-stack"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>Recharts</span></div>
+        <div class="stack-card" data-index="10">
+          <div class="stack-card-media" style="background-color:var(--brown)"></div>
+          <div class="stack-card-word">TAMBOLECO</div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">ERP · Next.js · Gestão</div>
+            <h3>ERP Tamboleco</h3>
+            <p>Gestão completa de locação de caçambas: clientes, inventário, financeiro e emissão de recibos em PDF.</p>
           </div>
         </div>
 
-        <!-- Master Regularização -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="thumb-placeholder">
-              <div class="thumb-placeholder-icon">
-                <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4V4zm5 0v16m5-16v16" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="thumb-placeholder-text">Master Regularização</div>
-            </div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Sistema Web · Kanban · Gestão</div>
-            <h3 class="projeto-nome">Sistema Master Regularização</h3>
-            <p class="projeto-desc">Ferramenta de gestão de clientes e processos em formato Kanban para empresa de regularização de imóveis. Organização por espaços de trabalho, etapas do processo com drag-and-drop, convite de equipe e controle de acesso.</p>
-            <div class="projeto-resultado">Rastreamento visual de cada processo de regularização, do início à conclusão.</div>
-            <div class="projeto-stack"><span>Next.js</span><span>TypeScript</span><span>Supabase</span><span>dnd-kit</span></div>
+        <div class="stack-card" data-index="11">
+          <div class="stack-card-media" style="background-color:var(--brown-dark)"></div>
+          <div class="stack-card-word">MASTER REGULARIZAÇÃO</div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Sistema Web · Kanban · Gestão</div>
+            <h3>Sistema Master Regularização</h3>
+            <p>Gestão de clientes e processos em Kanban para empresa de regularização de imóveis, com drag-and-drop e equipe.</p>
           </div>
         </div>
 
-        <!-- Conecta Estudante -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="thumb-placeholder">
-              <div class="thumb-placeholder-icon">
-                <svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5-10-5zm5 3v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="thumb-placeholder-text">Conecta Estudante</div>
-            </div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">Protótipo · Next.js · Educação</div>
-            <h3 class="projeto-nome">Conecta Estudante</h3>
-            <p class="projeto-desc">Protótipo funcional de sistema de presença escolar com detecção facial via câmera. Inclui app do aluno (notas, comunicados, histórico de presença), painel da secretaria (KPIs, lançamento de notas, acompanhamento de evasão) e app dos responsáveis com notificação em tempo real de check-in.</p>
-            <div class="projeto-resultado">Demonstração completa do fluxo aluno → secretaria → responsável em tempo real.</div>
-            <div class="projeto-stack"><span>Next.js</span><span>Supabase Realtime</span><span>face-api.js</span></div>
+        <div class="stack-card" data-index="12">
+          <div class="stack-card-media" style="background-color:var(--tan-deep)"></div>
+          <div class="stack-card-word">CONECTA ESTUDANTE</div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">Protótipo · Next.js · Educação</div>
+            <h3>Conecta Estudante</h3>
+            <p>Protótipo de presença escolar com detecção facial, app do aluno, painel da secretaria e app dos responsáveis em tempo real.</p>
           </div>
         </div>
 
-        <!-- Manda Prints (E-commerce Filipe) -->
-        <div class="projeto-card fade-up" data-cat="sistema">
-          <div class="projeto-thumb">
-            <div class="thumb-placeholder">
-              <div class="thumb-placeholder-icon">
-                <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 12H7L6 8zm3 0V6a3 3 0 016 0v2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </div>
-              <div class="thumb-placeholder-text">Manda Prints</div>
-            </div>
-          </div>
-          <div class="projeto-body">
-            <div class="projeto-tipo">E-commerce · Next.js · Pagamentos</div>
-            <h3 class="projeto-nome">Manda Prints — E-commerce</h3>
-            <p class="projeto-desc">Loja virtual para venda de fotografias autorais impressas em tela canvas. Coleções de produtos, carrinho, checkout integrado ao Mercado Pago, cálculo de frete via Melhor Envio, rastreio de pedidos e painel admin para gestão de envios.</p>
-            <div class="projeto-resultado">Loja pronta para operar, do checkout ao rastreio do pedido.</div>
-            <div class="projeto-stack"><span>Next.js</span><span>Mercado Pago</span><span>Melhor Envio</span><span>Supabase</span></div>
+        <div class="stack-card" data-index="13">
+          <div class="stack-card-media" style="background-color:var(--olive-deep)"></div>
+          <div class="stack-card-word">MANDA PRINTS</div>
+          <div class="stack-card-overlay"></div>
+          <div class="stack-card-text">
+            <div class="stack-card-type">E-commerce · Next.js · Pagamentos</div>
+            <h3>Manda Prints — E-commerce</h3>
+            <p>Loja de fotografias autorais em canvas, com checkout Mercado Pago, frete via Melhor Envio e rastreio de pedidos.</p>
           </div>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- TRAJETÓRIA -->
-  <section id="trajetoria">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="eyebrow">Experiência</div>
-        <h2 class="section-title on-dark">Uma trajetória de records</h2>
-        <p class="section-sub on-dark">Do chão de operações ao record LATAM. Cada posição com entrega acima do esperado.</p>
-      </div>
-      <div class="timeline">
-
-        <div class="timeline-item fade-up">
-          <div class="timeline-dot current"></div>
-          <div class="timeline-period">Jun 2025 — Atualmente <span class="badge-current">Em andamento</span></div>
-          <div class="timeline-role">Fundador · Professor · Mentor · Desenvolvedor</div>
-          <div class="timeline-company">J&M Company · Anápolis/GO</div>
-          <div class="timeline-highlights">
-            <div class="timeline-highlight">Fundação da própria empresa de educação, mentoria e desenvolvimento de projetos</div>
-            <div class="timeline-highlight">+200 alunos formados em Excel, dados, automação e sistemas</div>
-            <div class="timeline-highlight">+300 projetos entregues — de planilhas simples a aplicativos e automações complexas</div>
-          </div>
-        </div>
-
-        <div class="timeline-item fade-up">
-          <div class="timeline-dot"></div>
-          <div class="timeline-period">Set 2024 — Mai 2025</div>
-          <div class="timeline-role">Gerente de Operações</div>
-          <div class="timeline-company">Mercado Livre (DHL) · Brasília/DF</div>
-          <div class="timeline-highlights">
-            <div class="timeline-highlight">Go Live do CD Brasília — gestão direta de R$ 1,5 milhão e 100+ colaboradores</div>
-            <div class="timeline-highlight">No. 1 Produtividade LATAM — Inbound e Outbound</div>
-            <div class="timeline-highlight">SLA acima de 99,5% · Acuracidade 99% · Absenteísmo 20% → 3%</div>
-          </div>
-        </div>
-
-        <div class="timeline-item fade-up">
-          <div class="timeline-dot"></div>
-          <div class="timeline-period">Abr 2024 — Set 2024</div>
-          <div class="timeline-role">Gerente de Operações</div>
-          <div class="timeline-company">Amazon (ID Logistics) · Brasília/DF</div>
-          <div class="timeline-highlights">
-            <div class="timeline-highlight">No. 1 Acuracidade Amazon LATAM — dois recordes históricos (1 erro no inventário)</div>
-            <div class="timeline-highlight">Record no principal indicador pré e pós Prime Day</div>
-            <div class="timeline-highlight">Ferramenta VBA com redução de 80% na ociosidade de edição de produtos</div>
-          </div>
-        </div>
-
-        <div class="timeline-item fade-up">
-          <div class="timeline-dot"></div>
-          <div class="timeline-period">Jul 2023 — Mar 2024</div>
-          <div class="timeline-role">Líder Lean Regional</div>
-          <div class="timeline-company">Leroy Merlin · Regional Centro-Oeste (4 cidades)</div>
-          <div class="timeline-highlights">
-            <div class="timeline-highlight">Implantação Lean em Brasília, Goiânia, BH e Uberlândia</div>
-            <div class="timeline-highlight">NPS 70 → 95 · OTIF 85% → 98% · Produtividade +20%</div>
-            <div class="timeline-highlight">300+ horas de treinamento nas operações</div>
-          </div>
-        </div>
-
-        <div class="timeline-item fade-up">
-          <div class="timeline-dot"></div>
-          <div class="timeline-period">Mar 2022 — Jul 2023</div>
-          <div class="timeline-role">Analista de Supply Chain</div>
-          <div class="timeline-company">Leroy Merlin · Brasília/DF</div>
-          <div class="timeline-highlights">
-            <div class="timeline-highlight">Estoque de R$ 10 milhões sob responsabilidade direta</div>
-            <div class="timeline-highlight">R$ 1 milhão em saving gerado · +40% de faturamento</div>
-            <div class="timeline-highlight">Dias de estoque reduzidos de 120 para 50</div>
-          </div>
-        </div>
-
-        <div class="timeline-item fade-up">
-          <div class="timeline-dot"></div>
-          <div class="timeline-period">Nov 2019 — Mar 2022</div>
-          <div class="timeline-role">Assistente de Logística</div>
-          <div class="timeline-company">Leroy Merlin · Brasília/DF</div>
-          <div class="timeline-highlights">
-            <div class="timeline-highlight">SLA e-commerce de 80% para 95%</div>
-            <div class="timeline-highlight">100% de acurácia no inventário · R$ 100 mil em improdutivos eliminados</div>
-            <div class="timeline-highlight">Zerou carteira de 700 pedidos em atraso no pico da pandemia</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-inner">
-      <div class="section-header">
-        <div class="eyebrow">Ferramentas</div>
-        <h2 class="section-title on-light">Stack completa</h2>
-        <p class="section-sub on-light">Do Excel ao Python. Do SAP ao Power BI. Ferramentas que já entregaram em produção.</p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-group fade-up">
-          <div class="skill-group-label">Dados & BI</div>
-          <div class="skill-list">
-            <div class="skill-item">
-              <div class="skill-name"><span>Excel / VBA</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>Power BI</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>Qlik Sense</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>Looker Studio</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>SQL</span><span class="skill-level-label">Intermediário</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-group fade-up">
-          <div class="skill-group-label">Desenvolvimento</div>
-          <div class="skill-list">
-            <div class="skill-item">
-              <div class="skill-name"><span>Python</span><span class="skill-level-label">Intermediário</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>HTML / CSS</span><span class="skill-level-label">Intermediário</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>VBA</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>Google Apps Script</span><span class="skill-level-label">Intermediário</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-group fade-up">
-          <div class="skill-group-label">Sistemas & ERP</div>
-          <div class="skill-list">
-            <div class="skill-item">
-              <div class="skill-name"><span>SAP</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>Relex Solutions</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>Scrum / Kanban</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="skill-group fade-up">
-          <div class="skill-group-label">Lean & Melhoria Contínua</div>
-          <div class="skill-list">
-            <div class="skill-item">
-              <div class="skill-name"><span>5S · PDCA · Kaizen</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>VSM · A3 · DMAIC</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-name"><span>Hoshin Kanri · Gemba</span><span class="skill-level-label">Avançado</span></div>
-              <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-            </div>
-          </div>
+      <div class="stack-meta">
+        <span class="stack-counter" id="stackCounter">01 / 14</span>
+        <div class="stack-dots" id="stackDots"></div>
+        <div class="stack-nav">
+          <button id="prevBtn" aria-label="Projeto anterior">‹</button>
+          <button id="nextBtn" aria-label="Próximo projeto">›</button>
         </div>
       </div>
     </div>
@@ -1480,10 +499,10 @@
 
   <!-- CONTATO -->
   <section id="contato">
-    <div class="contato-inner">
-      <div class="eyebrow" style="justify-content:center;">Vamos conversar</div>
+    <div class="contato-inner fade-up">
+      <div class="eyebrow">Vamos conversar</div>
       <h2 class="contato-title">Pronto para o próximo <span>grande projeto?</span></h2>
-      <p class="contato-desc">Aberto a posições CLT sênior, projetos freelance e parcerias. Se você precisa de alguém que entrega operação e dados — fala comigo.</p>
+      <p class="contato-desc">Aberto a posições CLT sênior, projetos freelance e parcerias. Se você precisa de alguém que entrega sistemas e automações — fala comigo.</p>
       <div class="contato-links">
         <a href="mailto:johnimg845@gmail.com" class="contato-link primary">Enviar e-mail</a>
         <a href="https://www.linkedin.com/in/johni-michael/" target="_blank" rel="noopener" class="contato-link ghost">LinkedIn</a>
@@ -1498,69 +517,104 @@
   </footer>
 
   <script>
-    // Hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navLinks  = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
     // Scroll fade
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 70);
-          observer.unobserve(e.target);
-        }
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
       });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Slideshow
-    function initSlideshow(slideshowId, dotsId, interval) {
-      const container = document.getElementById(slideshowId);
-      if (!container) return;
-      const imgs = container.querySelectorAll('img');
-      if (imgs.length <= 1) return;
-      const dotsEl = document.getElementById(dotsId);
-      if (dotsEl) imgs.forEach((_, i) => {
-        const d = document.createElement('div');
-        d.className = 'slide-dot' + (i === 0 ? ' active' : '');
-        d.onclick = () => goTo(i);
-        dotsEl.appendChild(d);
-      });
-      let cur = 0;
-      function goTo(idx) {
-        imgs[cur].classList.remove('active');
-        if (dotsEl) dotsEl.children[cur].classList.remove('active');
-        cur = idx;
-        imgs[cur].classList.add('active');
-        if (dotsEl) dotsEl.children[cur].classList.add('active');
-      }
-      setInterval(() => goTo((cur + 1) % imgs.length), interval || 3000);
-    }
-    initSlideshow('slide-arena',     'dots-arena',     3200);
-    initSlideshow('slide-clinica',   'dots-clinica',   3000);
-    initSlideshow('slide-museu',     'dots-museu',     3500);
-    initSlideshow('slide-ergox',     'dots-ergox',     3000);
-    initSlideshow('slide-contratos', 'dots-contratos', 3200);
-    initSlideshow('slide-sala',      'dots-sala',      3000);
-    initSlideshow('slide-dash',      'dots-dash',      2800);
+    // ── Stack carousel ──
+    const viewport = document.getElementById('stackViewport');
+    const cards = Array.from(viewport.querySelectorAll('.stack-card'));
+    const total = cards.length;
+    const counterEl = document.getElementById('stackCounter');
+    const dotsEl = document.getElementById('stackDots');
+    let active = 0;
 
-    // Filtro projetos
-    document.querySelectorAll('.filtro-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        document.querySelectorAll('.projeto-card').forEach(card => {
-          if (filter === 'all' || card.dataset.cat === filter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
+    cards.forEach((_, i) => {
+      const d = document.createElement('div');
+      d.className = 'stack-dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => { active = i; render(); });
+      dotsEl.appendChild(d);
     });
+    const dots = Array.from(dotsEl.children);
+
+    function pad(n) { return String(n + 1).padStart(2, '0'); }
+
+    function render() {
+      cards.forEach((card, i) => {
+        const offset = i - active;
+        if (offset < 0) {
+          card.style.transform = 'translateX(-140%) rotate(-8deg)';
+          card.style.opacity = '0';
+          card.style.zIndex = 0;
+          card.style.pointerEvents = 'none';
+        } else if (offset === 0) {
+          card.style.transform = 'translateX(0) translateY(0) scale(1)';
+          card.style.opacity = '1';
+          card.style.zIndex = 50;
+          card.style.pointerEvents = 'auto';
+        } else if (offset <= 3) {
+          const s = 1 - offset * 0.05;
+          const y = offset * 14;
+          card.style.transform = `translateY(${y}px) scale(${s})`;
+          card.style.opacity = '1';
+          card.style.zIndex = 50 - offset;
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.opacity = '0';
+          card.style.zIndex = 0;
+          card.style.pointerEvents = 'none';
+        }
+      });
+      counterEl.textContent = `${pad(active)} / ${total}`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === active));
+    }
+
+    function next() { active = (active + 1) % total; render(); }
+    function prev() { active = (active - 1 + total) % total; render(); }
+
+    document.getElementById('nextBtn').addEventListener('click', next);
+    document.getElementById('prevBtn').addEventListener('click', prev);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+
+    // Drag / swipe
+    let dragging = false, startX = 0, dragX = 0, dragCard = null;
+
+    viewport.addEventListener('pointerdown', (e) => {
+      const card = e.target.closest('.stack-card');
+      if (!card || Number(card.dataset.index) !== active) return;
+      dragging = true;
+      startX = e.clientX;
+      dragX = 0;
+      dragCard = card;
+      card.classList.add('dragging');
+      card.setPointerCapture(e.pointerId);
+    });
+    viewport.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      dragX = e.clientX - startX;
+      dragCard.style.transform = `translateX(${dragX}px) rotate(${dragX / 20}deg)`;
+    });
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      dragCard.classList.remove('dragging');
+      if (dragX < -90) next();
+      else if (dragX > 90) prev();
+      else render();
+      dragX = 0;
+      dragCard = null;
+    }
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointerleave', endDrag);
+
+    render();
   </script>
 </body>
 </html>
