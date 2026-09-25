@@ -72,15 +72,12 @@
     #hero {
       position: relative;
       overflow: hidden;
+      background: #ffffff;
       padding: 120px 1.5rem 6rem;
       min-height: 100vh;
       display: flex;
       align-items: center;
     }
-    .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.5; pointer-events: none; z-index: 0; }
-    .blob-1 { width: 480px; height: 480px; background: var(--tan); top: -140px; left: -120px; }
-    .blob-2 { width: 440px; height: 440px; background: var(--olive); top: 20px; right: -160px; opacity: 0.35; }
-    .blob-3 { width: 420px; height: 420px; background: var(--brown); bottom: -200px; left: 28%; opacity: 0.4; }
 
     .stage-panel {
       position: relative;
@@ -163,8 +160,8 @@
       background: linear-gradient(to top, rgba(20,13,9,0.78) 0%, rgba(20,13,9,0.15) 45%, transparent 65%);
       pointer-events: none;
     }
-    .card-gallery-btn, .card-link-btn {
-      position: absolute; right: 14px;
+    .card-gallery-btn {
+      position: absolute; top: 14px; right: 14px;
       width: 34px; height: 34px;
       border-radius: 50%;
       background: rgba(255,255,255,0.16);
@@ -173,9 +170,7 @@
       color: #fff; text-decoration: none; font-size: 1rem;
       z-index: 3; border: none; cursor: pointer; transition: background 0.2s;
     }
-    .card-link-btn { top: 14px; }
-    .card-gallery-btn { top: 56px; }
-    .card-gallery-btn:hover, .card-link-btn:hover { background: rgba(255,255,255,0.32); }
+    .card-gallery-btn:hover { background: rgba(255,255,255,0.32); }
 
     /* ── STACK VIEW ── */
     .stack-viewport { position: relative; height: 440px; touch-action: pan-y; }
@@ -195,11 +190,7 @@
     .stack-card-text h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
     .stack-card-text p { font-size: 0.85rem; opacity: 0.88; max-width: 440px; line-height: 1.55; }
 
-    .stack-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 1.75rem; flex-wrap: wrap; gap: 1rem; }
-    .stack-counter { font-size: 0.8rem; font-weight: 700; color: var(--text-soft); letter-spacing: 0.02em; }
-    .stack-dots { display: flex; gap: 5px; flex-wrap: wrap; max-width: 280px; }
-    .stack-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); cursor: pointer; transition: all 0.25s; border: none; padding: 0; }
-    .stack-dot.active { background: var(--brown); transform: scale(1.5); }
+    .stack-meta { display: flex; align-items: center; justify-content: flex-end; margin-top: 1.75rem; }
     .stack-nav { display: flex; gap: 0.5rem; }
     .stack-nav button {
       width: 38px; height: 38px; border-radius: 50%;
@@ -318,10 +309,6 @@
 
   <!-- HERO / STAGE -->
   <section id="hero">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-
     <div class="stage-panel fade-up" id="projetos">
       <div class="stage-header">
         <span class="stage-name">Johni Michael</span>
@@ -343,8 +330,6 @@
       <div class="view-panel active" id="viewStack">
         <div class="stack-viewport" id="stackViewport"></div>
         <div class="stack-meta">
-          <span class="stack-counter" id="stackCounter">01 / 14</span>
-          <div class="stack-dots" id="stackDots"></div>
           <div class="stack-nav">
             <button id="prevBtn" aria-label="Projeto anterior">‹</button>
             <button id="nextBtn" aria-label="Próximo projeto">›</button>
@@ -390,8 +375,7 @@
         type: 'SaaS · Edtech · Gamificação',
         name: 'Arena Excel',
         desc: 'Plataforma que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular, com rankings e desafios por níveis.',
-        images: ['imagens/arena1.png','imagens/arena2.png','imagens/arena3.png','imagens/arena4.png','imagens/arena5.png'],
-        url: 'https://johniGomes.github.io/arena-excel'
+        images: ['imagens/arena1.png','imagens/arena2.png','imagens/arena3.png','imagens/arena4.png','imagens/arena5.png']
       },
       {
         type: 'Sistema Web · Saúde',
@@ -491,7 +475,6 @@
     viewport.innerHTML = PROJECTS.map((p, i) => `
       <div class="stack-card" data-index="${i}">
         ${faceHTML(p)}
-        ${p.url ? `<a class="card-link-btn" href="${p.url}" target="_blank" rel="noopener" aria-label="Abrir projeto">↗</a>` : ''}
         ${p.images.length > 1 ? `<button class="card-gallery-btn" data-gallery="${i}" aria-label="Ver fotos">⊞</button>` : ''}
         <div class="stack-card-text">
           <div class="stack-card-type">${p.type}</div>
@@ -503,19 +486,7 @@
 
     const cards = Array.from(viewport.querySelectorAll('.stack-card'));
     const total = cards.length;
-    const counterEl = document.getElementById('stackCounter');
-    const dotsEl = document.getElementById('stackDots');
     let active = 0;
-
-    cards.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.className = 'stack-dot' + (i === 0 ? ' active' : '');
-      d.addEventListener('click', () => { active = i; render(); });
-      dotsEl.appendChild(d);
-    });
-    const dots = Array.from(dotsEl.children);
-
-    function pad(n) { return String(n + 1).padStart(2, '0'); }
 
     function render() {
       cards.forEach((card, i) => {
@@ -534,8 +505,6 @@
           card.style.opacity = '0'; card.style.zIndex = 0; card.style.pointerEvents = 'none';
         }
       });
-      counterEl.textContent = `${pad(active)} / ${total}`;
-      dots.forEach((d, i) => d.classList.toggle('active', i === active));
     }
 
     function next() { active = (active + 1) % total; render(); }
@@ -545,7 +514,7 @@
 
     let dragging = false, startX = 0, dragX = 0, dragCard = null;
     viewport.addEventListener('pointerdown', (e) => {
-      if (e.target.closest('.card-gallery-btn') || e.target.closest('.card-link-btn')) return;
+      if (e.target.closest('.card-gallery-btn')) return;
       const card = e.target.closest('.stack-card');
       if (!card || Number(card.dataset.index) !== active) return;
       dragging = true; startX = e.clientX; dragX = 0; dragCard = card;
