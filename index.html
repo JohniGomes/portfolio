@@ -43,10 +43,13 @@
       justify-content: space-between;
     }
     .nav-logo {
-      display: flex; align-items: center;
+      display: flex; align-items: center; gap: 0.6rem;
       text-decoration: none;
     }
-    .nav-logo img { height: 40px; width: auto; display: block; }
+    .nav-logo img { height: 34px; width: auto; display: block; }
+    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .nav-logo-text strong { color: var(--cream); font-size: 1rem; font-weight: 800; letter-spacing: 0.02em; }
+    .nav-logo-text span { color: rgba(242,230,216,0.65); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.01em; }
     .nav-links { display: flex; align-items: center; gap: 1.5rem; list-style: none; }
     .nav-links a {
       color: rgba(242,230,216,0.8);
@@ -304,7 +307,10 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#hero" class="nav-logo"><img src="assets/logo-jm.png" alt="J&amp;M Company" /></a>
+    <a href="#hero" class="nav-logo">
+      <img src="assets/logo-icon.png" alt="" />
+      <span class="nav-logo-text"><strong>J&amp;T Company</strong><span>Tecnologia e Produtos Digitais</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#projetos">Projetos</a></li>
       <li><a href="https://wa.me/5562981834833" target="_blank" rel="noopener" class="nav-cta">Contato</a></li>
