@@ -93,18 +93,23 @@
     }
 
     .stage-intro {
-      text-align: center;
-      font-size: 1.15rem;
+      text-align: left;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--text);
-      max-width: 640px;
-      margin: 0 auto 2rem;
-      line-height: 1.6;
+      max-width: 480px;
+      margin: 0;
+      line-height: 1.5;
+      flex: 1 1 260px;
+      min-width: 0;
     }
 
     .stage-row {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.25rem;
       margin-bottom: 1.75rem;
     }
 
@@ -302,9 +307,9 @@
   <!-- HERO / STAGE -->
   <section id="hero">
     <div class="stage-panel fade-up" id="projetos">
-      <p class="stage-intro">Me chamo Johni, sou desenvolvedor web e mobile e estes foram alguns dos projetos que já realizei.</p>
-
       <div class="stage-row">
+        <p class="stage-intro">Me chamo Johni, sou desenvolvedor web e mobile e estes foram alguns dos projetos que já realizei.</p>
+
         <div class="view-switch" id="viewSwitch">
           <button data-view="stack" class="active" aria-label="Visualização empilhada" title="Empilhado">
             <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
