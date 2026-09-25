@@ -92,6 +92,16 @@
       border: 1px solid rgba(220,201,176,0.6);
     }
 
+    .stage-intro {
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
     .stage-row {
       display: flex;
       justify-content: flex-end;
@@ -137,13 +147,12 @@
       position: absolute; top: 14px; right: 14px;
       width: 34px; height: 34px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.22);
-      backdrop-filter: blur(6px);
+      background: var(--brown-dark);
       display: flex; align-items: center; justify-content: center;
-      color: #fff; text-decoration: none; font-size: 1rem;
+      color: var(--cream); text-decoration: none; font-size: 1rem;
       z-index: 3; border: none; cursor: pointer; transition: background 0.2s;
     }
-    .card-gallery-btn:hover { background: rgba(255,255,255,0.4); }
+    .card-gallery-btn:hover { background: var(--olive-deep); }
     .card-count {
       position: absolute; top: 14px; right: 14px; z-index: 2;
       background: rgba(255,255,255,0.22); backdrop-filter: blur(6px);
@@ -293,6 +302,8 @@
   <!-- HERO / STAGE -->
   <section id="hero">
     <div class="stage-panel fade-up" id="projetos">
+      <p class="stage-intro">Me chamo Johni, sou desenvolvedor web e mobile e estes foram alguns dos projetos que já realizei.</p>
+
       <div class="stage-row">
         <div class="view-switch" id="viewSwitch">
           <button data-view="stack" class="active" aria-label="Visualização empilhada" title="Empilhado">
