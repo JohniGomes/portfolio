@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Johni Michael | Projetos construídos</title>
-  <meta name="description" content="Portfolio de Johni Michael — sistemas, automações e dashboards construídos e entregues em produção." />
+  <meta name="description" content="Portfolio de Johni Michael: sistemas, automações e dashboards construídos e entregues em produção." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -84,7 +84,7 @@
     .stage-panel {
       position: relative;
       z-index: 2;
-      max-width: 920px;
+      max-width: 980px;
       margin: 0 auto;
       width: 100%;
       background: var(--panel);
@@ -113,9 +113,7 @@
       color: var(--text-soft);
     }
 
-    .stage-title {
-      margin-bottom: 2rem;
-    }
+    .stage-title { margin-bottom: 1.5rem; }
     .stage-title h1 {
       font-size: clamp(1.9rem, 3.6vw, 2.75rem);
       font-weight: 900;
@@ -124,126 +122,162 @@
       margin-bottom: 0.75rem;
     }
     .stage-title h1 em { color: var(--brown); font-style: normal; }
-    .stage-title p {
-      font-size: 0.98rem;
-      color: var(--text-soft);
-      max-width: 520px;
-      line-height: 1.7;
-    }
+    .stage-title p { font-size: 0.98rem; color: var(--text-soft); max-width: 560px; line-height: 1.7; }
 
-    /* ── STACK CAROUSEL ── */
-    .stack-viewport {
-      position: relative;
-      height: 440px;
-      touch-action: pan-y;
+    /* ── VIEW SWITCH ── */
+    .view-switch {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
     }
+    .view-switch button {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+    .view-switch button:hover { border-color: var(--brown); color: var(--text); }
+    .view-switch button.active { background: var(--brown-dark); border-color: var(--brown-dark); color: var(--cream); }
+
+    .view-panel { display: none; }
+    .view-panel.active { display: block; }
+
+    /* ── SHARED CARD FACE ── */
+    .card-media { position: absolute; inset: 0; background-size: cover; background-position: center; background-color: var(--brown); }
+    .card-word {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; color: rgba(255,255,255,0.92);
+      letter-spacing: -0.02em; text-align: center; pointer-events: none;
+    }
+    .card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,13,9,0.78) 0%, rgba(20,13,9,0.15) 45%, transparent 65%);
+      pointer-events: none;
+    }
+    .card-gallery-btn, .card-link-btn {
+      position: absolute; right: 14px;
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.16);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; text-decoration: none; font-size: 1rem;
+      z-index: 3; border: none; cursor: pointer; transition: background 0.2s;
+    }
+    .card-link-btn { top: 14px; }
+    .card-gallery-btn { top: 56px; }
+    .card-gallery-btn:hover, .card-link-btn:hover { background: rgba(255,255,255,0.32); }
+
+    /* ── STACK VIEW ── */
+    .stack-viewport { position: relative; height: 440px; touch-action: pan-y; }
     .stack-card {
-      position: absolute;
-      inset: 0;
-      margin: auto;
-      width: min(600px, 100%);
-      height: 100%;
+      position: absolute; inset: 0; margin: auto;
+      width: min(600px, 100%); height: 100%;
       border-radius: var(--radius-md);
-      overflow: hidden;
-      cursor: grab;
+      overflow: hidden; cursor: grab;
       box-shadow: 0 24px 55px rgba(61,42,31,0.28);
       transition: transform 0.5s cubic-bezier(.22,1,.36,1), opacity 0.5s ease;
       user-select: none;
     }
     .stack-card.dragging { transition: none; cursor: grabbing; }
-    .stack-card-media {
-      position: absolute; inset: 0;
-      background-size: cover;
-      background-position: center;
-      background-color: var(--brown);
-    }
-    .stack-card-word {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: clamp(1.6rem, 4.4vw, 2.6rem);
-      font-weight: 900;
-      color: rgba(255,255,255,0.92);
-      letter-spacing: -0.02em;
-      text-align: center;
-      padding: 2rem;
-      pointer-events: none;
-    }
-    .stack-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(20,13,9,0.78) 0%, rgba(20,13,9,0.15) 45%, transparent 65%);
-      pointer-events: none;
-    }
-    .stack-card-link {
-      position: absolute; top: 16px; right: 16px;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.16);
-      backdrop-filter: blur(6px);
-      display: flex; align-items: center; justify-content: center;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      z-index: 2;
-      transition: background 0.2s;
-    }
-    .stack-card-link:hover { background: rgba(255,255,255,0.32); }
-    .stack-card-text {
-      position: absolute; left: 0; right: 0; bottom: 0;
-      padding: 1.75rem;
-      color: #fff;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .stack-card-type {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; opacity: 0.85; margin-bottom: 0.4rem;
-    }
+    .stack-card .card-word { font-size: clamp(1.6rem, 4.4vw, 2.6rem); padding: 2rem; }
+    .stack-card-text { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.75rem; color: #fff; z-index: 1; pointer-events: none; }
+    .stack-card-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; margin-bottom: 0.4rem; }
     .stack-card-text h3 { font-size: 1.35rem; font-weight: 800; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
     .stack-card-text p { font-size: 0.85rem; opacity: 0.88; max-width: 440px; line-height: 1.55; }
-    .stack-card-stack-tag {
-      display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem;
-    }
-    .stack-card-stack-tag span {
-      background: rgba(255,255,255,0.16);
-      color: #fff;
-      font-size: 0.68rem;
-      font-weight: 600;
-      padding: 0.2rem 0.55rem;
-      border-radius: 999px;
-    }
 
-    .stack-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1.75rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+    .stack-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 1.75rem; flex-wrap: wrap; gap: 1rem; }
     .stack-counter { font-size: 0.8rem; font-weight: 700; color: var(--text-soft); letter-spacing: 0.02em; }
     .stack-dots { display: flex; gap: 5px; flex-wrap: wrap; max-width: 280px; }
-    .stack-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); cursor: pointer; transition: all 0.25s; }
+    .stack-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); cursor: pointer; transition: all 0.25s; border: none; padding: 0; }
     .stack-dot.active { background: var(--brown); transform: scale(1.5); }
     .stack-nav { display: flex; gap: 0.5rem; }
     .stack-nav button {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      background: var(--panel);
-      color: var(--text);
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.2s;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid var(--line); background: var(--panel); color: var(--text);
+      font-size: 1.1rem; cursor: pointer; transition: all 0.2s;
       display: flex; align-items: center; justify-content: center;
     }
     .stack-nav button:hover { background: var(--brown-dark); color: var(--cream); border-color: var(--brown-dark); }
 
-    /* ── CONTATO ── */
-    #contato {
-      padding: 6rem 1.5rem;
-      background: var(--cream);
-      text-align: center;
+    /* ── GRID VIEW ── */
+    .grid-view { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .grid-card {
+      position: relative; aspect-ratio: 4 / 3.1; border-radius: 16px; overflow: hidden;
+      cursor: pointer; box-shadow: 0 10px 30px rgba(61,42,31,0.15);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
+    .grid-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(61,42,31,0.22); }
+    .grid-card .card-word { font-size: 1.1rem; padding: 1rem; }
+    .grid-card-text { position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem; color: #fff; z-index: 1; pointer-events: none; }
+    .grid-card-type { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.85; margin-bottom: 0.25rem; }
+    .grid-card-text h3 { font-size: 0.92rem; font-weight: 800; letter-spacing: -0.01em; }
+    .grid-card-count {
+      position: absolute; top: 12px; right: 12px; z-index: 2;
+      background: rgba(255,255,255,0.2); backdrop-filter: blur(6px);
+      color: #fff; font-size: 0.65rem; font-weight: 700;
+      padding: 0.2rem 0.55rem; border-radius: 999px;
+    }
+
+    /* ── LIST VIEW ── */
+    .list-view { display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 0.75rem; }
+    .list-view::-webkit-scrollbar { height: 6px; }
+    .list-view::-webkit-scrollbar-thumb { background: var(--line); border-radius: 999px; }
+    .list-item {
+      flex: 0 0 auto; width: 270px; scroll-snap-align: start;
+      border-radius: 16px; overflow: hidden; background: var(--panel);
+      border: 1px solid var(--line); cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .list-item:hover { transform: translateY(-3px); border-color: var(--brown); }
+    .list-item-thumb { position: relative; height: 150px; }
+    .list-item-thumb .card-word { font-size: 0.95rem; padding: 0.75rem; }
+    .list-item-body { padding: 0.9rem 1.1rem 1.1rem; }
+    .list-item-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown); margin-bottom: 0.35rem; }
+    .list-item-body h3 { font-size: 0.95rem; font-weight: 800; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+    .list-item-body p { font-size: 0.78rem; color: var(--text-soft); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      display: none; align-items: center; justify-content: center;
+      padding: 2rem 1rem;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-backdrop { position: absolute; inset: 0; background: rgba(61,42,31,0.88); }
+    .lightbox-inner { position: relative; z-index: 1; max-width: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; }
+    .lightbox-img { max-width: 100%; max-height: 68vh; border-radius: 14px; box-shadow: 0 30px 70px rgba(0,0,0,0.5); object-fit: contain; background: var(--brown-dark); }
+    .lightbox-close {
+      position: absolute; top: -50px; right: 0;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.12); color: #fff; border: none;
+      font-size: 1.4rem; cursor: pointer; transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+    .lightbox-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(255,255,255,0.14); color: #fff; border: none;
+      font-size: 1.4rem; cursor: pointer; transition: background 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lightbox-arrow:hover { background: rgba(255,255,255,0.28); }
+    .lightbox-prev { left: -8px; }
+    .lightbox-next { right: -8px; }
+    .lightbox-caption { margin-top: 1.25rem; text-align: center; color: var(--cream); }
+    .lightbox-caption h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 0.3rem; }
+    .lightbox-caption span { font-size: 0.78rem; color: rgba(242,230,216,0.65); font-weight: 600; }
+
+    /* ── CONTATO ── */
+    #contato { padding: 6rem 1.5rem; background: var(--cream); text-align: center; }
     .contato-inner { max-width: 620px; margin: 0 auto; }
     .eyebrow {
       display: inline-flex; align-items: center; gap: 8px;
@@ -252,49 +286,27 @@
       justify-content: center; width: 100%;
     }
     .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--brown); }
-    .contato-title {
-      font-size: clamp(1.9rem, 3.6vw, 2.75rem);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
+    .contato-title { font-size: clamp(1.9rem, 3.6vw, 2.75rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 1rem; }
     .contato-title span { color: var(--brown); }
     .contato-desc { color: var(--text-soft); font-size: 1rem; margin-bottom: 2.5rem; }
     .contato-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.875rem; }
-    .contato-link {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.875rem 1.625rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
+    .contato-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.625rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
     .contato-link.primary { background: var(--brown-dark); color: var(--cream); }
     .contato-link.primary:hover { background: var(--olive-deep); transform: translateY(-2px); }
-    .contato-link.ghost {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      color: var(--text);
-    }
+    .contato-link.ghost { background: var(--panel); border: 1px solid var(--line); color: var(--text); }
     .contato-link.ghost:hover { border-color: var(--brown); color: var(--brown); transform: translateY(-2px); }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--panel);
-      padding: 1.75rem 2rem;
-      text-align: center;
-      color: var(--text-soft);
-      font-size: 0.78rem;
-      border-top: 1px solid var(--line);
-    }
+    footer { background: var(--panel); padding: 1.75rem 2rem; text-align: center; color: var(--text-soft); font-size: 0.78rem; border-top: 1px solid var(--line); }
 
     /* ── ANIMAÇÕES ── */
     .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .grid-view { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 720px) {
       .stage-panel { padding: 1.75rem 1.25rem 1.5rem; }
       .stack-viewport { height: 380px; }
@@ -302,8 +314,12 @@
       .stack-card-text h3 { font-size: 1.1rem; }
       .nav-links { gap: 0.75rem; }
       .nav-links a:not(.nav-cta) { display: none; }
+      .lightbox-arrow { width: 38px; height: 38px; font-size: 1.15rem; }
+      .lightbox-prev { left: -2px; }
+      .lightbox-next { right: -2px; }
     }
-    @media (max-width: 420px) {
+    @media (max-width: 480px) {
+      .grid-view { grid-template-columns: 1fr; }
       .stack-viewport { height: 340px; }
     }
   </style>
@@ -328,181 +344,66 @@
     <div class="stage-panel fade-up" id="projetos">
       <div class="stage-header">
         <span class="stage-name">Johni Michael</span>
-        <span class="stage-label">Trabalhos construídos — Sistemas &amp; Automações</span>
+        <span class="stage-label">Trabalhos construídos · Sistemas &amp; Automações</span>
       </div>
 
       <div class="stage-title">
         <h1>Projetos que <em>saíram do papel.</em></h1>
-        <p>Gestor de Operações e Tech Builder. Cada card abaixo é um sistema, app ou automação que construí e entreguei — arraste para navegar.</p>
+        <p>Gestor de Operações e Tech Builder. Cada card abaixo é um sistema, app ou automação que construí e entreguei. Arraste, clique ou explore em grade.</p>
       </div>
 
-      <div class="stack-viewport" id="stackViewport">
-
-        <div class="stack-card" data-index="0" data-url="https://johniGomes.github.io/arena-excel">
-          <div class="stack-card-media" style="background-image:url('imagens/arena3.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <a class="stack-card-link" href="https://johniGomes.github.io/arena-excel" target="_blank" rel="noopener" aria-label="Abrir Arena Excel">↗</a>
-          <div class="stack-card-text">
-            <div class="stack-card-type">SaaS · Edtech · Gamificação</div>
-            <h3>Arena Excel</h3>
-            <p>Plataforma que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular, com rankings e desafios por níveis.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="1">
-          <div class="stack-card-media" style="background-image:url('imagens/centrogs1.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Sistema Web · Saúde</div>
-            <h3>Centro Clínico e Odontológico GS</h3>
-            <p>Sistema de controle de repasse para clínica odontológica, com login seguro e gestão financeira centralizada.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="2">
-          <div class="stack-card-media" style="background-image:url('imagens/museu1.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Sistema Web · Cultura</div>
-            <h3>Sistema Museu de Cera RJ</h3>
-            <p>Lançamento de vendas e controle de acesso do museu, com área restrita e visibilidade operacional em tempo real.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="3">
-          <div class="stack-card-media" style="background-image:url('imagens/ergox1.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Sistema Web · Ergonomia</div>
-            <h3>ErgoX — Gestão Ergonômica</h3>
-            <p>Sistema com 3 módulos para gestão de AET e Planos de Ação, com semáforo automático e CRUD via Google Sheets + Apps Script.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="4">
-          <div class="stack-card-media" style="background-image:url('imagens/contratos1.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Automação · Python · Next.js</div>
-            <h3>Automação de Contratos — Viver de Obra</h3>
-            <p>Geração automática de contratos em PDF, com OCR de documentos, banco SQLite e templates dinâmicos. Entregue em produção.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="5">
-          <div class="stack-card-media" style="background-image:url('imagens/sala1.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Sistema Web · Comercial</div>
-            <h3>Automação Sala Comercial — Viver de Obra</h3>
-            <p>Gestão da operação comercial com dashboard de KPIs e emissão de vouchers integrada.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="6">
-          <div class="stack-card-media" style="background-image:url('imagens/agentepython.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Automação · Python · Desktop</div>
-            <h3>Agente de Processamento de NFs</h3>
-            <p>Aplicação desktop para extração e organização automática de notas fiscais, com planilha de custos integrada.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="7">
-          <div class="stack-card-media" style="background-image:url('imagens/prospeccao.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Automação · Python · Leads</div>
-            <h3>Automação de Prospecção de Clientes</h3>
-            <p>Coleta automática de leads, tratamento de dados CSV e disparo automático de e-mails de prospecção.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="8">
-          <div class="stack-card-media" style="background-image:url('imagens/dashboard 1.png')"></div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Business Intelligence · Dados</div>
-            <h3>Dashboards Executivos — BI &amp; HTML</h3>
-            <p>Dashboards de performance em Power BI, Qlik Sense, Looker Studio e HTML para diretoria e lideranças.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="9">
-          <div class="stack-card-media" style="background-color:var(--olive)"></div>
-          <div class="stack-card-word">VDO CLUB</div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">SaaS · Next.js · B2B</div>
-            <h3>VDO Club</h3>
-            <p>Plataforma B2B que conecta arquitetos a fornecedores, com diretório por categoria e fluxo de orçamento estilo CRM.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="10">
-          <div class="stack-card-media" style="background-color:var(--brown)"></div>
-          <div class="stack-card-word">TAMBOLECO</div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">ERP · Next.js · Gestão</div>
-            <h3>ERP Tamboleco</h3>
-            <p>Gestão completa de locação de caçambas: clientes, inventário, financeiro e emissão de recibos em PDF.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="11">
-          <div class="stack-card-media" style="background-color:var(--brown-dark)"></div>
-          <div class="stack-card-word">MASTER REGULARIZAÇÃO</div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Sistema Web · Kanban · Gestão</div>
-            <h3>Sistema Master Regularização</h3>
-            <p>Gestão de clientes e processos em Kanban para empresa de regularização de imóveis, com drag-and-drop e equipe.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="12">
-          <div class="stack-card-media" style="background-color:var(--tan-deep)"></div>
-          <div class="stack-card-word">CONECTA ESTUDANTE</div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">Protótipo · Next.js · Educação</div>
-            <h3>Conecta Estudante</h3>
-            <p>Protótipo de presença escolar com detecção facial, app do aluno, painel da secretaria e app dos responsáveis em tempo real.</p>
-          </div>
-        </div>
-
-        <div class="stack-card" data-index="13">
-          <div class="stack-card-media" style="background-color:var(--olive-deep)"></div>
-          <div class="stack-card-word">MANDA PRINTS</div>
-          <div class="stack-card-overlay"></div>
-          <div class="stack-card-text">
-            <div class="stack-card-type">E-commerce · Next.js · Pagamentos</div>
-            <h3>Manda Prints — E-commerce</h3>
-            <p>Loja de fotografias autorais em canvas, com checkout Mercado Pago, frete via Melhor Envio e rastreio de pedidos.</p>
-          </div>
-        </div>
-
+      <div class="view-switch" id="viewSwitch">
+        <button data-view="stack" class="active">Empilhado</button>
+        <button data-view="grid">Grade</button>
+        <button data-view="list">Lista</button>
       </div>
 
-      <div class="stack-meta">
-        <span class="stack-counter" id="stackCounter">01 / 14</span>
-        <div class="stack-dots" id="stackDots"></div>
-        <div class="stack-nav">
-          <button id="prevBtn" aria-label="Projeto anterior">‹</button>
-          <button id="nextBtn" aria-label="Próximo projeto">›</button>
+      <!-- STACK VIEW -->
+      <div class="view-panel active" id="viewStack">
+        <div class="stack-viewport" id="stackViewport"></div>
+        <div class="stack-meta">
+          <span class="stack-counter" id="stackCounter">01 / 14</span>
+          <div class="stack-dots" id="stackDots"></div>
+          <div class="stack-nav">
+            <button id="prevBtn" aria-label="Projeto anterior">‹</button>
+            <button id="nextBtn" aria-label="Próximo projeto">›</button>
+          </div>
         </div>
+      </div>
+
+      <!-- GRID VIEW -->
+      <div class="view-panel" id="viewGrid">
+        <div class="grid-view" id="gridView"></div>
+      </div>
+
+      <!-- LIST VIEW -->
+      <div class="view-panel" id="viewList">
+        <div class="list-view" id="listView"></div>
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">×</button>
+      <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Imagem anterior">‹</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+      <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Próxima imagem">›</button>
+      <div class="lightbox-caption">
+        <h4 id="lightboxTitle"></h4>
+        <span id="lightboxCount"></span>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTATO -->
   <section id="contato">
     <div class="contato-inner fade-up">
       <div class="eyebrow">Vamos conversar</div>
       <h2 class="contato-title">Pronto para o próximo <span>grande projeto?</span></h2>
-      <p class="contato-desc">Aberto a posições CLT sênior, projetos freelance e parcerias. Se você precisa de alguém que entrega sistemas e automações — fala comigo.</p>
+      <p class="contato-desc">Aberto a posições CLT sênior, projetos freelance e parcerias. Se você precisa de alguém que entrega sistemas e automações, fala comigo.</p>
       <div class="contato-links">
         <a href="mailto:johnimg845@gmail.com" class="contato-link primary">Enviar e-mail</a>
         <a href="https://www.linkedin.com/in/johni-michael/" target="_blank" rel="noopener" class="contato-link ghost">LinkedIn</a>
@@ -517,16 +418,123 @@
   </footer>
 
   <script>
-    // Scroll fade
+    // ── Dados dos projetos ──
+    const PROJECTS = [
+      {
+        type: 'SaaS · Edtech · Gamificação',
+        name: 'Arena Excel',
+        desc: 'Plataforma que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular, com rankings e desafios por níveis.',
+        images: ['imagens/arena1.png','imagens/arena2.png','imagens/arena3.png','imagens/arena4.png','imagens/arena5.png'],
+        url: 'https://johniGomes.github.io/arena-excel'
+      },
+      {
+        type: 'Sistema Web · Saúde',
+        name: 'Centro Clínico e Odontológico GS',
+        desc: 'Sistema de controle de repasse para clínica odontológica, com login seguro e gestão financeira centralizada.',
+        images: ['imagens/centrogs1.png','imagens/centrogs2.png','imagens/centrogs3.png','imagens/centrogs4.png']
+      },
+      {
+        type: 'Sistema Web · Cultura',
+        name: 'Sistema Museu de Cera RJ',
+        desc: 'Lançamento de vendas e controle de acesso do museu, com área restrita e visibilidade operacional em tempo real.',
+        images: ['imagens/museu1.png','imagens/museu2.png','imagens/museu3.png','imagens/Museu4.png']
+      },
+      {
+        type: 'Sistema Web · Ergonomia',
+        name: 'ErgoX · Gestão Ergonômica',
+        desc: 'Sistema com 3 módulos para gestão de AET e Planos de Ação, com semáforo automático e CRUD via Google Sheets + Apps Script.',
+        images: ['imagens/ergox1.png','imagens/ergox2.png','imagens/ergox3.png','imagens/ergox4.png']
+      },
+      {
+        type: 'Automação · Python · Next.js',
+        name: 'Automação de Contratos · Viver de Obra',
+        desc: 'Geração automática de contratos em PDF, com OCR de documentos, banco SQLite e templates dinâmicos. Entregue em produção.',
+        images: ['imagens/contratos1.png','imagens/contratos2.png','imagens/contratos3.png','imagens/contratos4.png']
+      },
+      {
+        type: 'Sistema Web · Comercial',
+        name: 'Automação Sala Comercial · Viver de Obra',
+        desc: 'Gestão da operação comercial com dashboard de KPIs e emissão de vouchers integrada.',
+        images: ['imagens/sala1.png','imagens/sala2.png','imagens/sala3.png']
+      },
+      {
+        type: 'Automação · Python · Desktop',
+        name: 'Agente de Processamento de NFs',
+        desc: 'Aplicação desktop para extração e organização automática de notas fiscais, com planilha de custos integrada.',
+        images: ['imagens/agentepython.png']
+      },
+      {
+        type: 'Automação · Python · Leads',
+        name: 'Automação de Prospecção de Clientes',
+        desc: 'Coleta automática de leads, tratamento de dados CSV e disparo automático de e-mails de prospecção.',
+        images: ['imagens/prospeccao.png']
+      },
+      {
+        type: 'Business Intelligence · Dados',
+        name: 'Dashboards Executivos · BI & HTML',
+        desc: 'Dashboards de performance em Power BI, Qlik Sense, Looker Studio e HTML para diretoria e lideranças.',
+        images: ['imagens/dashboard 1.png','imagens/Dashboard 2.png','imagens/dashboard 3.png','imagens/dashboard 4.png','imagens/dashboard 5.png']
+      },
+      {
+        type: 'SaaS · Next.js · B2B',
+        name: 'VDO Club',
+        desc: 'Plataforma B2B que conecta arquitetos a fornecedores, com diretório por categoria e fluxo de orçamento estilo CRM.',
+        images: [], color: 'var(--olive)', word: 'VDO CLUB'
+      },
+      {
+        type: 'ERP · Next.js · Gestão',
+        name: 'ERP Tamboleco',
+        desc: 'Gestão completa de locação de caçambas: clientes, inventário, financeiro e emissão de recibos em PDF.',
+        images: [], color: 'var(--brown)', word: 'TAMBOLECO'
+      },
+      {
+        type: 'Sistema Web · Kanban · Gestão',
+        name: 'Sistema Master Regularização',
+        desc: 'Gestão de clientes e processos em Kanban para empresa de regularização de imóveis, com drag and drop e equipe.',
+        images: [], color: 'var(--brown-dark)', word: 'MASTER REGULARIZAÇÃO'
+      },
+      {
+        type: 'Protótipo · Next.js · Educação',
+        name: 'Conecta Estudante',
+        desc: 'Protótipo de presença escolar com detecção facial, app do aluno, painel da secretaria e app dos responsáveis em tempo real.',
+        images: [], color: 'var(--tan-deep)', word: 'CONECTA ESTUDANTE'
+      },
+      {
+        type: 'E-commerce · Next.js · Pagamentos',
+        name: 'Manda Prints · E-commerce',
+        desc: 'Loja de fotografias autorais em canvas, com checkout Mercado Pago, frete via Melhor Envio e rastreio de pedidos.',
+        images: [], color: 'var(--olive-deep)', word: 'MANDA PRINTS'
+      }
+    ];
+
+    function faceHTML(p) {
+      if (p.images.length) {
+        return `<div class="card-media" style="background-image:url('${p.images[0]}')"></div><div class="card-overlay"></div>`;
+      }
+      return `<div class="card-media" style="background-color:${p.color}"></div><div class="card-word">${p.word}</div><div class="card-overlay"></div>`;
+    }
+
+    // ── Scroll fade ──
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-      });
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // ── Stack carousel ──
+    // ── STACK VIEW ──
     const viewport = document.getElementById('stackViewport');
+    viewport.innerHTML = PROJECTS.map((p, i) => `
+      <div class="stack-card" data-index="${i}">
+        ${faceHTML(p)}
+        ${p.url ? `<a class="card-link-btn" href="${p.url}" target="_blank" rel="noopener" aria-label="Abrir projeto">↗</a>` : ''}
+        ${p.images.length > 1 ? `<button class="card-gallery-btn" data-gallery="${i}" aria-label="Ver fotos">⊞</button>` : ''}
+        <div class="stack-card-text">
+          <div class="stack-card-type">${p.type}</div>
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+        </div>
+      </div>
+    `).join('');
+
     const cards = Array.from(viewport.querySelectorAll('.stack-card'));
     const total = cards.length;
     const counterEl = document.getElementById('stackCounter');
@@ -534,7 +542,7 @@
     let active = 0;
 
     cards.forEach((_, i) => {
-      const d = document.createElement('div');
+      const d = document.createElement('button');
       d.className = 'stack-dot' + (i === 0 ? ' active' : '');
       d.addEventListener('click', () => { active = i; render(); });
       dotsEl.appendChild(d);
@@ -548,25 +556,16 @@
         const offset = i - active;
         if (offset < 0) {
           card.style.transform = 'translateX(-140%) rotate(-8deg)';
-          card.style.opacity = '0';
-          card.style.zIndex = 0;
-          card.style.pointerEvents = 'none';
+          card.style.opacity = '0'; card.style.zIndex = 0; card.style.pointerEvents = 'none';
         } else if (offset === 0) {
           card.style.transform = 'translateX(0) translateY(0) scale(1)';
-          card.style.opacity = '1';
-          card.style.zIndex = 50;
-          card.style.pointerEvents = 'auto';
+          card.style.opacity = '1'; card.style.zIndex = 50; card.style.pointerEvents = 'auto';
         } else if (offset <= 3) {
-          const s = 1 - offset * 0.05;
-          const y = offset * 14;
+          const s = 1 - offset * 0.05, y = offset * 14;
           card.style.transform = `translateY(${y}px) scale(${s})`;
-          card.style.opacity = '1';
-          card.style.zIndex = 50 - offset;
-          card.style.pointerEvents = 'none';
+          card.style.opacity = '1'; card.style.zIndex = 50 - offset; card.style.pointerEvents = 'none';
         } else {
-          card.style.opacity = '0';
-          card.style.zIndex = 0;
-          card.style.pointerEvents = 'none';
+          card.style.opacity = '0'; card.style.zIndex = 0; card.style.pointerEvents = 'none';
         }
       });
       counterEl.textContent = `${pad(active)} / ${total}`;
@@ -575,26 +574,16 @@
 
     function next() { active = (active + 1) % total; render(); }
     function prev() { active = (active - 1 + total) % total; render(); }
-
     document.getElementById('nextBtn').addEventListener('click', next);
     document.getElementById('prevBtn').addEventListener('click', prev);
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
-    });
 
-    // Drag / swipe
     let dragging = false, startX = 0, dragX = 0, dragCard = null;
-
     viewport.addEventListener('pointerdown', (e) => {
+      if (e.target.closest('.card-gallery-btn') || e.target.closest('.card-link-btn')) return;
       const card = e.target.closest('.stack-card');
       if (!card || Number(card.dataset.index) !== active) return;
-      dragging = true;
-      startX = e.clientX;
-      dragX = 0;
-      dragCard = card;
-      card.classList.add('dragging');
-      card.setPointerCapture(e.pointerId);
+      dragging = true; startX = e.clientX; dragX = 0; dragCard = card;
+      card.classList.add('dragging'); card.setPointerCapture(e.pointerId);
     });
     viewport.addEventListener('pointermove', (e) => {
       if (!dragging) return;
@@ -603,18 +592,108 @@
     });
     function endDrag() {
       if (!dragging) return;
-      dragging = false;
-      dragCard.classList.remove('dragging');
-      if (dragX < -90) next();
-      else if (dragX > 90) prev();
-      else render();
-      dragX = 0;
-      dragCard = null;
+      dragging = false; dragCard.classList.remove('dragging');
+      if (dragX < -90) next(); else if (dragX > 90) prev(); else render();
+      dragX = 0; dragCard = null;
     }
     viewport.addEventListener('pointerup', endDrag);
     viewport.addEventListener('pointerleave', endDrag);
 
     render();
+
+    // ── GRID VIEW ──
+    const gridView = document.getElementById('gridView');
+    gridView.innerHTML = PROJECTS.map((p, i) => `
+      <div class="grid-card" data-open="${i}">
+        ${faceHTML(p)}
+        ${p.images.length > 1 ? `<div class="grid-card-count">${p.images.length} fotos</div>` : ''}
+        <div class="grid-card-text">
+          <div class="grid-card-type">${p.type}</div>
+          <h3>${p.name}</h3>
+        </div>
+      </div>
+    `).join('');
+
+    // ── LIST VIEW ──
+    const listView = document.getElementById('listView');
+    listView.innerHTML = PROJECTS.map((p, i) => `
+      <div class="list-item" data-open="${i}">
+        <div class="list-item-thumb">
+          ${faceHTML(p)}
+          ${p.images.length > 1 ? `<div class="grid-card-count">${p.images.length} fotos</div>` : ''}
+        </div>
+        <div class="list-item-body">
+          <div class="list-item-type">${p.type}</div>
+          <h3>${p.name}</h3>
+          <p>${p.desc}</p>
+        </div>
+      </div>
+    `).join('');
+
+    // ── VIEW SWITCH ──
+    const switchBtns = Array.from(document.querySelectorAll('.view-switch button'));
+    const panels = { stack: document.getElementById('viewStack'), grid: document.getElementById('viewGrid'), list: document.getElementById('viewList') };
+    switchBtns.forEach(btn => btn.addEventListener('click', () => {
+      switchBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      Object.values(panels).forEach(p => p.classList.remove('active'));
+      panels[btn.dataset.view].classList.add('active');
+    }));
+
+    // ── LIGHTBOX ──
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
+    const lbCount = document.getElementById('lightboxCount');
+    let lbProject = 0, lbIndex = 0;
+
+    function openLightbox(projectIndex, imageIndex) {
+      const p = PROJECTS[projectIndex];
+      if (!p.images.length) return;
+      lbProject = projectIndex; lbIndex = imageIndex || 0;
+      renderLightbox();
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+    function renderLightbox() {
+      const p = PROJECTS[lbProject];
+      lbImg.src = p.images[lbIndex];
+      lbImg.alt = p.name;
+      lbTitle.textContent = p.name;
+      lbCount.textContent = `${lbIndex + 1} / ${p.images.length}`;
+    }
+    function closeLightbox() { lightbox.classList.remove('open'); lightbox.setAttribute('aria-hidden', 'true'); }
+    function lbNext() { const p = PROJECTS[lbProject]; lbIndex = (lbIndex + 1) % p.images.length; renderLightbox(); }
+    function lbPrev() { const p = PROJECTS[lbProject]; lbIndex = (lbIndex - 1 + p.images.length) % p.images.length; renderLightbox(); }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxBackdrop').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxNext').addEventListener('click', lbNext);
+    document.getElementById('lightboxPrev').addEventListener('click', lbPrev);
+
+    viewport.addEventListener('click', (e) => {
+      const btn = e.target.closest('.card-gallery-btn');
+      if (btn) openLightbox(Number(btn.dataset.gallery), 0);
+    });
+    gridView.addEventListener('click', (e) => {
+      const card = e.target.closest('.grid-card');
+      if (card) openLightbox(Number(card.dataset.open), 0);
+    });
+    listView.addEventListener('click', (e) => {
+      const item = e.target.closest('.list-item');
+      if (item) openLightbox(Number(item.dataset.open), 0);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('open')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') lbNext();
+        if (e.key === 'ArrowLeft') lbPrev();
+        return;
+      }
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
   </script>
 </body>
 </html>
