@@ -129,6 +129,20 @@
 
     /* ── SHARED CARD FACE ── */
     .card-media { position: absolute; inset: 0; background-size: cover; background-position: center; background-color: var(--brown); }
+    .card-media-slideshow { position: absolute; inset: 0; overflow: hidden; }
+    .card-media-frame {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center; background-color: var(--brown);
+      opacity: 0; transition: opacity 1.4s ease;
+      animation-duration: 10s; animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite; animation-direction: alternate;
+      will-change: transform;
+    }
+    .card-media-frame.active { opacity: 1; }
+    .card-media-frame.kb-a { animation-name: kenburnsA; }
+    .card-media-frame.kb-b { animation-name: kenburnsB; }
+    @keyframes kenburnsA { 0% { transform: scale(1) translate(0, 0); } 100% { transform: scale(1.16) translate(-3%, -2%); } }
+    @keyframes kenburnsB { 0% { transform: scale(1.1) translate(-2%, 1%); } 100% { transform: scale(1.22) translate(1%, -3%); } }
     .card-word {
       position: absolute; inset: 0;
       display: flex; align-items: center; justify-content: center;
@@ -167,7 +181,7 @@
       display: flex; flex-direction: column;
     }
     .stack-card.dragging { transition: none; cursor: grabbing; }
-    .stack-card-visual { position: relative; flex: 0 0 380px; }
+    .stack-card-visual { position: relative; flex: 0 0 380px; overflow: hidden; }
     .stack-card .card-word { font-size: clamp(1.6rem, 4.4vw, 2.6rem); padding: 2rem; }
     .stack-card-caption { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; overflow: hidden; }
     .stack-card-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown); margin-bottom: 0.4rem; }
@@ -194,7 +208,7 @@
       transition: transform 0.25s, box-shadow 0.25s;
     }
     .grid-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(61,42,31,0.18); }
-    .grid-card-visual { position: relative; aspect-ratio: 4 / 3; }
+    .grid-card-visual { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
     .grid-card .card-word { font-size: 1.1rem; padding: 1rem; }
     .grid-card-caption { padding: 1rem 1.1rem 1.1rem; }
     .grid-card-type { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown); margin-bottom: 0.3rem; }
@@ -212,7 +226,7 @@
       transition: transform 0.2s, border-color 0.2s;
     }
     .list-item:hover { transform: translateY(-3px); border-color: var(--brown); }
-    .list-item-thumb { position: relative; height: 150px; }
+    .list-item-thumb { position: relative; height: 150px; overflow: hidden; }
     .list-item-thumb .card-word { font-size: 0.95rem; padding: 0.75rem; }
     .list-item-body { padding: 0.9rem 1.1rem 1.1rem; }
     .list-item-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brown); margin-bottom: 0.35rem; }
@@ -441,10 +455,28 @@
     ];
 
     function faceHTML(p) {
-      if (p.images.length) {
-        return `<div class="card-media" style="background-image:url('${p.images[0]}');background-position:${p.pos || 'center'}"></div>`;
+      if (p.images.length > 1) {
+        const pos = p.pos || 'center';
+        const frames = p.images.map((img, i) => `<div class="card-media-frame ${i % 2 === 0 ? 'kb-a' : 'kb-b'}${i === 0 ? ' active' : ''}" style="background-image:url('${img}');background-position:${pos}"></div>`).join('');
+        return `<div class="card-media-slideshow">${frames}</div>`;
+      }
+      if (p.images.length === 1) {
+        return `<div class="card-media-slideshow"><div class="card-media-frame kb-a active" style="background-image:url('${p.images[0]}');background-position:${p.pos || 'center'}"></div></div>`;
       }
       return `<div class="card-media" style="background-color:${p.color}"></div><div class="card-word">${p.word}</div>`;
+    }
+
+    function initMediaSlideshows(root) {
+      root.querySelectorAll('.card-media-slideshow').forEach((el) => {
+        const frames = Array.from(el.children);
+        if (frames.length <= 1) return;
+        let idx = 0;
+        setInterval(() => {
+          frames[idx].classList.remove('active');
+          idx = (idx + 1) % frames.length;
+          frames[idx].classList.add('active');
+        }, 3600 + Math.random() * 900);
+      });
     }
 
     // ── Scroll fade ──
@@ -468,6 +500,7 @@
         </div>
       </div>
     `).join('');
+    initMediaSlideshows(viewport);
 
     const cards = Array.from(viewport.querySelectorAll('.stack-card'));
     const total = cards.length;
@@ -536,6 +569,7 @@
         </div>
       </div>
     `).join('');
+    initMediaSlideshows(gridView);
 
     // ── LIST VIEW ──
     const listView = document.getElementById('listView');
@@ -552,6 +586,7 @@
         </div>
       </div>
     `).join('');
+    initMediaSlideshows(listView);
 
     // ── VIEW SWITCH ──
     const switchBtns = Array.from(document.querySelectorAll('.view-switch button'));
