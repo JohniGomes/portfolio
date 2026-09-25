@@ -357,7 +357,8 @@
         type: 'SaaS · Edtech · Gamificação',
         name: 'Arena Excel',
         desc: 'Plataforma que transforma o aprendizado de Excel em uma experiência gamificada acessível pelo celular, com rankings e desafios por níveis.',
-        images: ['imagens/arena1.png','imagens/arena2.png','imagens/arena3.png','imagens/arena4.png','imagens/arena5.png']
+        images: ['imagens/arena1.png','imagens/arena2.png','imagens/arena3.png','imagens/arena4.png','imagens/arena5.png'],
+        pos: 'center 20%'
       },
       {
         type: 'Sistema Web · Saúde',
@@ -441,7 +442,7 @@
 
     function faceHTML(p) {
       if (p.images.length) {
-        return `<div class="card-media" style="background-image:url('${p.images[0]}')"></div>`;
+        return `<div class="card-media" style="background-image:url('${p.images[0]}');background-position:${p.pos || 'center'}"></div>`;
       }
       return `<div class="card-media" style="background-color:${p.color}"></div><div class="card-word">${p.word}</div>`;
     }
