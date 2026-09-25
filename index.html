@@ -84,7 +84,7 @@
     .stage-panel {
       position: relative;
       z-index: 2;
-      max-width: 980px;
+      max-width: 1180px;
       margin: 0 auto;
       width: 100%;
       background: var(--panel);
@@ -172,10 +172,10 @@
     }
 
     /* ── STACK VIEW ── */
-    .stack-viewport { position: relative; height: 560px; touch-action: pan-y; }
+    .stack-viewport { position: relative; height: 680px; touch-action: pan-y; }
     .stack-card {
       position: absolute; inset: 0; margin: auto;
-      width: min(600px, 100%); height: 100%;
+      width: min(860px, 100%); height: 100%;
       border-radius: var(--radius-md);
       overflow: hidden; cursor: grab;
       background: var(--panel);
@@ -186,7 +186,7 @@
       display: flex; flex-direction: column;
     }
     .stack-card.dragging { transition: none; cursor: grabbing; }
-    .stack-card-visual { position: relative; flex: 0 0 380px; overflow: hidden; }
+    .stack-card-visual { position: relative; flex: 0 0 500px; overflow: hidden; }
     .stack-card .card-word { font-size: clamp(1.6rem, 4.4vw, 2.6rem); padding: 2rem; }
     .stack-card-caption { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 1.5rem; overflow: hidden; }
     .stack-card-type { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown); margin-bottom: 0.4rem; }
